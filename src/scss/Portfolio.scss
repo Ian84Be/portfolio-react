@@ -1,0 +1,41 @@
+.Portfolio {
+  background: palegoldenrod;
+  border-radius: 4px;
+  margin-top: 16px;
+  padding: 8px;
+  width: 100%;
+}
+
+.Portfolio header {
+  display: flex;
+  h3 {
+    font-size: 2rem;
+  }
+}
+
+.Portfolio__body {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.Portfolio__card {
+  // align-items: center;
+  // border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  header {
+    margin: 8px 0;
+  }
+  .Portfolio__card-body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    img {
+      border-radius: 4px;
+      object-fit: cover;
+      width: 90%;
+    }
+  }
+}
