@@ -1,0 +1,25 @@
+.NavBar {
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid palegoldenrod;
+  display: flex;
+  left: 0;
+  overflow: scroll;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 123;
+
+  a {
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    text-decoration: none;
+    &:hover {
+      color: slateblue;
+    }
+    &.active {
+      color: black;
+    }
+  }
+}

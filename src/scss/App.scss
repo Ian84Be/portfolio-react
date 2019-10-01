@@ -1,0 +1,29 @@
+@import './reset';
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 62.5%;
+}
+
+.App {
+  background: beige;
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+
+  .App__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .App__body {
+    display: flex;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    margin: 4rem 1rem;
+  }
+}
