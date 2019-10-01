@@ -18,22 +18,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    .NavBar {
-      a {
-        font-size: 1.5rem;
-        margin: 0 1rem;
-        text-decoration: none;
-        &:hover {
-          color: slateblue;
-        }
-        &.active {
-          color: black;
-        }
-      }
-    }
   }
 
-  main {
+  .App__body {
+    display: flex;
+    font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
+    margin: 4rem 1rem;
   }
 }

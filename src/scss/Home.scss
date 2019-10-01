@@ -1,0 +1,25 @@
+.Home {
+  align-items: center;
+  background: palegoldenrod;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  width: 100%;
+  height: 200px;
+}
+
+.Home__left-side {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.Home__right-side {
+  img {
+    border-radius: 50%;
+  }
+}

@@ -11,9 +11,11 @@ function App() {
         <header className="App__header">
           <NavBar />
         </header>
-        <Switch>
-          <Route exact path="/" component={Home} />
-        </Switch>
+        <main className="App__body">
+          <Switch>
+            <Route path="/" component={Home} />
+          </Switch>
+        </main>
       </div>
     </Router>
   );
