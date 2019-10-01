@@ -1,22 +1,39 @@
+@import './reset';
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 62.5%;
+}
+
 .App {
-  text-align: center;
-}
+  background: beige;
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh;
 
-.App-logo {
-  height: 40vmin;
-}
+  .App__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .NavBar {
+      a {
+        font-size: 1.5rem;
+        margin: 0 1rem;
+        text-decoration: none;
+        &:hover {
+          color: slateblue;
+        }
+        &.active {
+          color: black;
+        }
+      }
+    }
+  }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+  main {
+    font-family: 'Montserrat', sans-serif;
+  }
 }
