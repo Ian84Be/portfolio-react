@@ -1,15 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import '../scss/NavBar.scss';
 
 const NavBar = () => {
   return (
     <nav className="NavBar">
-      <NavLink exact to="/">
-        Home
-      </NavLink>
-      <NavLink to="/portfolio">Portfolio</NavLink>
-      <NavLink to="/contact">Contact</NavLink>
+      <a href="#home">Home</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
     </nav>
   );
 };

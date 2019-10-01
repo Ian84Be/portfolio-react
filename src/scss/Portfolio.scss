@@ -14,28 +14,37 @@
 }
 
 .Portfolio__body {
+  justify-content: center;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   padding: 8px;
 }
 
 .Portfolio__card {
-  // align-items: center;
-  // border: 1px solid blue;
+  border-radius: 4px;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  margin: 16px;
   padding: 4px;
-  header {
-    margin: 8px 0;
+  transition: all 0.5s ease;
+  width: 200px;
+
+  &:hover {
+    transform: scale(1.2);
   }
+
   .Portfolio__card-body {
     align-items: center;
     display: flex;
     flex-direction: column;
+    padding: 4px;
     img {
+      border: 1px solid beige;
       border-radius: 4px;
       object-fit: cover;
-      width: 90%;
+      padding: 8px;
+      width: 200px;
     }
   }
 }
