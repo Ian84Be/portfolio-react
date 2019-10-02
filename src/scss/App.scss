@@ -1,4 +1,5 @@
 @import './reset';
+@import './palette';
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap');
 
 * {
@@ -6,13 +7,14 @@
 }
 
 body {
+  background: $dark-bg;
   font-size: 62.5%;
+  height: 100vh;
 }
 
 .App {
-  background: beige;
+  color: $dark-text;
   font-family: 'Open Sans', sans-serif;
-  height: 100vh;
 
   .App__header {
     display: flex;
@@ -21,9 +23,58 @@ body {
   }
 
   .App__body {
+    align-items: center;
     display: flex;
+    flex-direction: column;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    margin: 4rem 1rem;
+    margin: 70px 1rem;
+  }
+}
+
+.modal--close {
+  display: none;
+}
+
+.modal--expand {
+  align-items: center;
+  animation: fadeIn 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  position: absolute;
+  width: 100%;
+  z-index: 123;
+
+  .modal-Project {
+    // border: 1px solid red;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    z-index: 12;
+    p {
+      color: $dark-text2;
+      font-size: 2rem;
+      padding: 16px;
+      z-index: 12;
+    }
+    img {
+      max-width: 80%;
+      z-index: 12;
+    }
+  }
+
+  span.modal--expand__background-overlay {
+    background: rgba(0, 0, 0, 0.95);
+    cursor: pointer;
+    content: '';
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
   }
 }

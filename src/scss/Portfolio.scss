@@ -1,0 +1,53 @@
+@import './palette';
+
+.Portfolio {
+  background: $dark-section-bg;
+  border-radius: 4px;
+  margin-top: 16px;
+  padding: 16px;
+  max-width: 800px;
+}
+
+.Portfolio header {
+  display: flex;
+  h3 {
+    color: $dark-text2;
+    font-size: 2rem;
+  }
+}
+
+.Portfolio__body {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px;
+}
+
+.Portfolio__card {
+  border-radius: 4px;
+  color: $dark-text;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  padding: 4px;
+  transition: all 0.5s ease;
+  width: 200px;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  .Portfolio__card-body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    img {
+      // border: 1px solid beige;
+      border-radius: 4px;
+      object-fit: cover;
+      width: 200px;
+    }
+  }
+}
