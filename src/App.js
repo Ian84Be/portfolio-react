@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 import Portfolio from './components/Portfolio';
-import thumbnail from './onelineaday.png';
+import thumbnail from './assets/img/onelineaday.png';
 import './scss/App.scss';
 
 function App() {

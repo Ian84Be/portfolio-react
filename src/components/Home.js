@@ -1,5 +1,5 @@
 import React from 'react';
-import profilePic from '../ian-be-linkedin.png';
+import profilePic from '../assets/img/ian-be-linkedin.png';
 import '../scss/Home.scss';
 
 const Home = () => {

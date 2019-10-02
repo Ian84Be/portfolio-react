@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import thumbnail from '../onelineaday.png';
+import thumbnail from '../assets/img/onelineaday.png';
 import '../scss/Portfolio.scss';
 
 const Portfolio = ({ projects, setModal, setViewProj }) => {
