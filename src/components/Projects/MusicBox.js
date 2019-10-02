@@ -1,5 +1,9 @@
 import React from 'react';
 
+import hihat from '../../assets/sounds/drums/hihat.wav';
+
+import '../../scss/Projects/MusicBox.scss';
+
 const MusicBox = () => {
   // window.addEventListener('keydown', playSound);
   // const keys = document.querySelectorAll('.key');
@@ -113,20 +117,47 @@ const MusicBox = () => {
           <span class="sound">tom</span>
         </div>
       </div>
-      <audio data-key="83" src="sounds/drums/hihat.wav"></audio>
-      <audio data-key="68" src="sounds/drums/kick.wav"></audio>
-      <audio data-key="74" src="sounds/drums/snare.wav"></audio>
-      <audio data-key="75" src="sounds/drums/tom.wav"></audio>
+      <audio data-key="83" src={hihat}></audio>
+      <audio data-key="68" src="../../assets/sounds/drums/kick.wav"></audio>
+      <audio data-key="74" src="../../assets/sounds/drums/snare.wav"></audio>
+      <audio data-key="75" src="../../assets/sounds/drums/tom.wav"></audio>
 
-      <audio data-key="81" src="sounds/guitar/c-min-penta/cg-1.wav"></audio>
-      <audio data-key="87" src="sounds/guitar/c-min-penta/cg-2.wav"></audio>
-      <audio data-key="69" src="sounds/guitar/c-min-penta/cg-3.wav"></audio>
-      <audio data-key="82" src="sounds/guitar/c-min-penta/cg-4.wav"></audio>
-      <audio data-key="84" src="sounds/guitar/c-min-penta/cg-5.wav"></audio>
-      <audio data-key="89" src="sounds/guitar/c-min-penta/cg-6.wav"></audio>
-      <audio data-key="85" src="sounds/guitar/c-min-penta/cg-7.wav"></audio>
-      <audio data-key="73" src="sounds/guitar/c-min-penta/cg-8.wav"></audio>
-      <audio data-key="79" src="sounds/guitar/c-min-penta/cg-9.wav"></audio>
+      <audio
+        data-key="81"
+        src="../../assets/sounds/guitar/c-min-penta/cg-1.wav"
+      ></audio>
+      <audio
+        data-key="87"
+        src="../../assets/sounds/guitar/c-min-penta/cg-2.wav"
+      ></audio>
+      <audio
+        data-key="69"
+        src="../../assets/sounds/guitar/c-min-penta/cg-3.wav"
+      ></audio>
+      <audio
+        data-key="82"
+        src="../../assets/sounds/guitar/c-min-penta/cg-4.wav"
+      ></audio>
+      <audio
+        data-key="84"
+        src="../../assets/sounds/guitar/c-min-penta/cg-5.wav"
+      ></audio>
+      <audio
+        data-key="89"
+        src="../../assets/sounds/guitar/c-min-penta/cg-6.wav"
+      ></audio>
+      <audio
+        data-key="85"
+        src="../../assets/sounds/guitar/c-min-penta/cg-7.wav"
+      ></audio>
+      <audio
+        data-key="73"
+        src="../../assets/sounds/guitar/c-min-penta/cg-8.wav"
+      ></audio>
+      <audio
+        data-key="79"
+        src="../../assets/sounds/guitar/c-min-penta/cg-9.wav"
+      ></audio>
       {/*     
     <audio data-key="81" src="sounds/guitar/c-min-triad/cg-1.wav"></audio>
     <audio data-key="87" src="sounds/guitar/c-min-triad/cg-2.wav"></audio>

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
+
+import allProjects from './components/Projects/allProjects';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 import Portfolio from './components/Portfolio';
-import thumbnail from './assets/img/onelineaday.png';
 import './scss/App.scss';
 
 function App() {
   const [modal, setModal] = useState(false);
-  const [viewProj, setViewProj] = useState([]);
-  const [projects, setProjects] = useState([]);
+  const [viewProj, setViewProj] = useState(allProjects[0]);
 
   return (
     <div id="home" className="App">
@@ -17,10 +17,10 @@ function App() {
       </header>
       <div className={modal ? 'modal--expand' : 'modal--close'}>
         {modal && (
-          <div className="modal-image">
+          <div className="modal-Project">
             {window.scroll(0, 0)}
-            <p>PORTFOLIO MODAL</p>
-            <img src={thumbnail} alt="thumbnail" />
+            <p>{viewProj.name}</p>
+            {viewProj.c()}
           </div>
         )}
         <span

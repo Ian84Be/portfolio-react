@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import thumbnail from '../assets/img/onelineaday.png';
+import allProjects from './Projects/allProjects';
 import '../scss/Portfolio.scss';
 
-const Portfolio = ({ projects, setModal, setViewProj }) => {
+const Portfolio = ({ setModal, setViewProj }) => {
+  const [projects] = useState(allProjects);
   return (
     <div id="portfolio" className="Portfolio">
       <header>
@@ -10,26 +11,16 @@ const Portfolio = ({ projects, setModal, setViewProj }) => {
       </header>
 
       <section className="Portfolio__body" onClick={() => setModal(true)}>
-        <div className="Portfolio__card">
-          <header>DesignHub</header>
-          <div className="Portfolio__card-body">
-            <img src={thumbnail} alt="thumbnail" />
-          </div>
-        </div>
-
-        <div className="Portfolio__card">
-          <header>WordUp</header>
-          <div className="Portfolio__card-body">
-            <img src={thumbnail} alt="thumbnail" />
-          </div>
-        </div>
-
-        <div className="Portfolio__card">
-          <header>One Line A Day</header>
-          <div className="Portfolio__card-body">
-            <img src={thumbnail} alt="thumbnail" />
-          </div>
-        </div>
+        {projects.map(p => {
+          return (
+            <div className="Portfolio__card">
+              <header>{p.name}</header>
+              <div className="Portfolio__card-body">
+                <img src={p.img} alt={p.name} />
+              </div>
+            </div>
+          );
+        })}
       </section>
     </div>
   );

@@ -46,12 +46,14 @@ body {
   width: 100%;
   z-index: 123;
 
-  .modal-image {
+  .modal-Project {
+    // border: 1px solid red;
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
+    margin-bottom: 1rem;
+    z-index: 12;
     p {
       color: $dark-text2;
       font-size: 2rem;
