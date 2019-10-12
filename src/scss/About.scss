@@ -94,9 +94,14 @@
     font-size: 2rem;
     margin-right: 0.5rem;
     margin-top: 0.33rem;
+    transition: transform 0.5s ease-in;
     &.globe {
       cursor: pointer;
       margin: 0.65rem 0.5rem 0.5rem 0;
+      &:hover {
+        transform: scale(11);
+        transition: transform 0.5s ease-out;
+      }
     }
   }
 }
