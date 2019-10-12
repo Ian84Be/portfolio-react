@@ -12,22 +12,20 @@
   );
   border-bottom-left-radius: 50% 50%;
   border-bottom-right-radius: 50% 50%;
-
-  // prettier-ignore
-  box-shadow: 
-		0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.91),
-		0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-		0 0.63rem 0.33rem hsla(29, 100%, 47%, 0.1),
-		0 0.93rem 0.33rem hsla(29, 100%, 47%, 0.1),
-		0 1.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-		0 2.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-		0 3.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-		0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
   display: flex;
-  margin-top: 2rem;
-  // padding-bottom: 8rem;
+  padding-top: 2rem;
   width: 100%;
   z-index: 12;
+  // prettier-ignore
+  box-shadow: 
+	 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.91),
+	 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 0.63rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 0.93rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 1.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 2.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 3.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
 
   .About__body {
     display: flex;

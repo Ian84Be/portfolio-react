@@ -14,7 +14,7 @@ const About = () => {
           <p>
             I am a full-stack web developer with strong front-end skills and
             military leadership experience. My specialties include Javascript,
-            React, Redux, Node, and Express.
+            React, Redux, Node, Express, HTML, and CSS.
           </p>
         </div>
 

@@ -4,8 +4,6 @@
   align-items: center;
   justify-content: center;
   background: $dark-bg;
-  border-bottom-left-radius: 50% 20%;
-  border-bottom-right-radius: 50% 20%;
   display: flex;
   padding: 4rem 0;
   width: 100%;
@@ -14,7 +12,6 @@
 
 .Profile__body {
   align-items: center;
-  // background: $dark-section-bg;
   border-radius: 8px;
 
   display: flex;
@@ -53,26 +50,7 @@
     font-size: 1.2rem;
   }
 
-  .brackets__container {
-    // border: 1px solid red;
-    display: flex;
-
-    .bigredbrackets {
-      color: $dark-bg;
-      font-size: 10rem;
-      margin-top: -1rem;
-    }
-    .brackets__body {
-      // border: 1px solid white;
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
   .icons {
-    // border: 1px solid red;
-    // padding: 8px 0;
     img {
       cursor: pointer;
       margin: 8px;
@@ -92,7 +70,6 @@
 }
 
 .Profile__right-side {
-  // border: 1px solid red;
   margin-left: 16px;
   padding: 16px;
   img {

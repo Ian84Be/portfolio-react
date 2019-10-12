@@ -19,6 +19,9 @@
     font-size: 1.5rem;
     margin: 0 1rem;
     text-decoration: none;
+    @media (max-width: 580px) {
+      font-size: 1.3rem;
+    }
     &:hover {
       color: $dark-link-hover;
     }
@@ -31,5 +34,8 @@
     cursor: pointer;
     font-size: 3rem;
     margin: 0 1rem;
+    @media (max-width: 580px) {
+      font-size: 2rem;
+    }
   }
 }
