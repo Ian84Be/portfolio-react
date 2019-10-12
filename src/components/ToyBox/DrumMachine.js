@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 
-import hihat from '../../assets/sounds/drums/hihat.wav';
-import kick from '../../assets/sounds/drums/kick.wav';
-import snare from '../../assets/sounds/drums/snare.wav';
-import tom from '../../assets/sounds/drums/tom.wav';
+import hihat from '../../assets/DrumMachine/sounds/hihat.wav';
+import kick from '../../assets/DrumMachine/sounds/kick.wav';
+import snare from '../../assets/DrumMachine/sounds/snare.wav';
+import tom from '../../assets/DrumMachine/sounds/tom.wav';
 
 import kickDrumIcon from '../../assets/DrumMachine/img/kickdrum.png';
 import snareDrumIcon from '../../assets/DrumMachine/img/snaredrum2.png';
