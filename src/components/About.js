@@ -1,7 +1,7 @@
 import React from 'react';
 import '../scss/About.scss';
 
-const About = () => {
+const About = ({ lightMode, setLightMode }) => {
   return (
     <div className="About">
       <div className="About__body">
@@ -36,9 +36,25 @@ const About = () => {
             When I am not staring into screens I like to play guitar, cook food,
             read books, and go outside, sometimes in that exact order.
           </p>
-          <span role="img" className="globe" aria-label="sun with face">
-            🌞
-          </span>
+          {lightMode ? (
+            <span
+              aria-label="full moon face"
+              className="globe"
+              role="img"
+              onClick={() => setLightMode(false)}
+            >
+              🌝
+            </span>
+          ) : (
+            <span
+              aria-label="sun with face"
+              className="globe"
+              role="img"
+              onClick={() => setLightMode(true)}
+            >
+              🌞
+            </span>
+          )}
         </div>
       </div>
     </div>
