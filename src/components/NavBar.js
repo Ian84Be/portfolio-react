@@ -25,7 +25,7 @@ const NavBar = ({ lightMode, setLightMode }) => {
           ☯
         </span>
       )}
-      <a href="/toybox">ToyBox</a>
+      <a href="/#toybox">ToyBox</a>
       <a href="/#contact">Contact</a>
     </nav>
   );
