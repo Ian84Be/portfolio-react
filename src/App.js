@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import allProjects from './components/ToyBox/allProjects';
-import Home from './components/Profile';
+import Profile from './components/Profile';
 import NavBar from './components/NavBar';
 import ToyBox from './components/ToyBox/ToyBox';
 import './scss/App.scss';
@@ -13,7 +13,7 @@ function App() {
   const [lightMode, setLightMode] = useState(false);
 
   return (
-    <div id="home" className="App">
+    <div id="home" className={`App ${lightMode ? 'lightMode' : ''}`}>
       <header className="App__header">
         <NavBar lightMode={lightMode} setLightMode={setLightMode} />
       </header>
@@ -32,7 +32,7 @@ function App() {
       </div>
 
       <main className="App__body">
-        <Home />
+        <Profile lightMode={lightMode} />
         <About lightMode={lightMode} setLightMode={setLightMode} />
         {/* <ToyBox setModal={setModal} setViewProj={setViewProj} /> */}
       </main>

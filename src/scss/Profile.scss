@@ -8,6 +8,17 @@
   padding: 4rem 0;
   width: 100%;
   z-index: 1;
+
+  &.lightMode {
+    background: $light-bg;
+    color: $light-text;
+    a {
+      color: $light-link;
+      &:hover {
+        color: $light-text;
+      }
+    }
+  }
 }
 
 .Profile__body {
@@ -72,6 +83,11 @@
 .Profile__right-side {
   margin-left: 16px;
   padding: 16px;
+  &.lightMode {
+    img {
+      opacity: 0.77;
+    }
+  }
   img {
     border-radius: 50%;
     transition: all 0.5s ease;

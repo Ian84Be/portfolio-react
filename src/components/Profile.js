@@ -5,9 +5,9 @@ import linkedInLogo from '../assets/img/LI-In-Bug.png';
 import profilePic from '../assets/img/ian-belknap3.png';
 import '../scss/Profile.scss';
 
-const Profile = () => {
+const Profile = ({ lightMode }) => {
   return (
-    <div className="Profile">
+    <div className={`Profile ${lightMode ? 'lightMode' : ''}`}>
       <div className="Profile__body">
         <section className="Profile__left-side" role="banner">
           <h1>Ian Belknap</h1>
@@ -34,15 +34,11 @@ const Profile = () => {
               src={linkedInLogo}
             />
           </div>
-
-          {/* <div className="brackets__container">
-          <div class="bigredbrackets">{'{'}</div>
-          <section className="brackets__body"></section>
-          <div class="bigredbrackets">{'}'}</div>
-        </div> */}
         </section>
 
-        <section className="Profile__right-side">
+        <section
+          className={`Profile__right-side ${lightMode ? 'lightMode' : ''}`}
+        >
           <img alt="Ian Belknap" src={profilePic} />
         </section>
       </div>

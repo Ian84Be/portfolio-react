@@ -3,7 +3,7 @@ import '../scss/About.scss';
 
 const About = ({ lightMode, setLightMode }) => {
   return (
-    <div className="About">
+    <div className={`About ${lightMode ? 'lightMode' : ''}`}>
       <div className="About__body">
         <header className="About__header">Hello World!</header>
 
