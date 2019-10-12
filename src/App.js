@@ -33,7 +33,7 @@ function App() {
       <main className="App__body">
         <Home />
         <About />
-        <ToyBox setModal={setModal} setViewProj={setViewProj} />
+        {/* <ToyBox setModal={setModal} setViewProj={setViewProj} /> */}
       </main>
     </div>
   );

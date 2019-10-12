@@ -47,12 +47,14 @@
   div.About__p {
     margin: 1rem;
     &:last-child {
+      text-align: center;
       color: $dark-bg;
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-top: 2rem;
       span {
-        margin-top: 4rem;
+        margin-top: 2rem;
       }
     }
   }
