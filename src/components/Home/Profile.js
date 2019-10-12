@@ -1,9 +1,9 @@
 import React from 'react';
-import githubLight from '../assets/img/GitHub-Mark-Light-64px.png';
-import lambdaLogo from '../assets/img/Lambda_Logo.png';
-import linkedInLogo from '../assets/img/LI-In-Bug.png';
-import profilePic from '../assets/img/ian-belknap3.png';
-import '../scss/Profile.scss';
+import githubLight from '../../assets/img/GitHub-Mark-Light-64px.png';
+import lambdaLogo from '../../assets/img/Lambda_Logo.png';
+import linkedInLogo from '../../assets/img/LI-In-Bug.png';
+import profilePic from '../../assets/img/ian-belknap3.png';
+import '../../scss/Profile.scss';
 
 const Profile = ({ lightMode }) => {
   return (

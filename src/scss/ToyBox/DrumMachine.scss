@@ -1,23 +1,20 @@
 @import '../palette';
 
 .DrumMachine__container {
-  border: 1px solid red;
   align-items: center;
   background: $dark-section-bg;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 123456789;
+  margin-top: 8rem;
 }
 
 .controls {
-  background: $dark-section-bg;
   margin: 10px;
 }
 
 button.auto-play {
-  // border: 0;
   background: $dark-bg;
   border-radius: 4px;
   color: $dark-text;

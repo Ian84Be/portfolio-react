@@ -1,22 +1,17 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-// import allProjects from './components/ToyBox/allProjects';
-import About from './components/About';
-import Profile from './components/Profile';
+import Home from './components/Home/Home';
 import NavBar from './components/NavBar';
-import ToyBox from './components/ToyBox/ToyBox';
+import Projects from './components/Projects';
 
+import ToyBox from './components/ToyBox/ToyBox';
 import DrumMachine from './components/ToyBox/DrumMachine';
 import './scss/App.scss';
 
 function App() {
   const [lightMode, setLightMode] = useState(false);
-  const [aboutRef, setAboutRef] = useState(null);
-  const [toyBoxRef, setToyBoxRef] = useState(null);
-  // const [modal, setModal] = useState(false);
-  // const [viewProj, setViewProj] = useState(allProjects[0]);
-  const [navLoc, setNavLoc] = useState('top');
 
   useEffect(() => {
     window.addEventListener('scroll', debounce(handleScroll));
@@ -25,8 +20,8 @@ function App() {
     };
   });
 
-  // console.log(aboutRef);
   const handleScroll = e => {
+    return;
     // console.log(e);
     // console.log(window.scrollY + window.innerHeight);
   };
@@ -35,52 +30,32 @@ function App() {
     <BrowserRouter>
       <div id="home" className={`App ${lightMode ? 'lightMode' : ''}`}>
         <header className="App__header">
-          <NavBar
-            navLoc={navLoc}
-            lightMode={lightMode}
-            setLightMode={setLightMode}
-            toyBoxRef={toyBoxRef}
-          />
+          <NavBar lightMode={lightMode} setLightMode={setLightMode} />
         </header>
-        {/* <div className={modal ? 'modal--expand' : 'modal--close'}>
-        {modal && (
-          <div className="modal-Project">
-            {window.scroll(0, 0)}
-            <p>{viewProj.name}</p>
-            {viewProj.c()}
-          </div>
-        )}
-        <span
-          className="modal--expand__background-overlay"
-          onClick={() => setModal(false)}
-        />
-      </div> */}
 
         <main className="App__body">
-          <Profile lightMode={lightMode} />
-          <About
-            lightMode={lightMode}
-            setAboutRef={setAboutRef}
-            setLightMode={setLightMode}
-          />
-          {/* <ToyBox
-            // setModal={setModal}
-            // setViewProj={setViewProj}
-            setToyBoxRef={setToyBoxRef}
-					/> */}
-
           <Switch>
             <Route
               exact
               path="/"
               render={props => (
-                <ToyBox {...props} setToyBoxRef={setToyBoxRef} />
+                <Home
+                  {...props}
+                  lightMode={lightMode}
+                  setLightMode={setLightMode}
+                />
               )}
+            />
+            <Route
+              exact
+              path="/ToyBox"
+              render={props => <ToyBox {...props} />}
             />
             <Route
               path="/ToyBox/DrumMachine"
               render={props => <DrumMachine {...props} />}
             />
+            <Route path="/Projects" render={props => <Projects {...props} />} />
           </Switch>
         </main>
       </div>

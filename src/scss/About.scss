@@ -90,7 +90,6 @@
     margin: 1rem;
 
     @media (max-width: 580px) {
-      // padding: 0 1rem;
       padding: 0 1.3rem;
     }
 
@@ -146,7 +145,6 @@
     &.yin-yang {
       cursor: pointer;
       margin: 0.65rem 0.5rem 0.5rem 0;
-      // transform: rotate(90deg);
       &:hover {
         transform: scale(2) rotate(90deg);
         transition: transform 0.5s ease-out;

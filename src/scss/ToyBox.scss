@@ -2,22 +2,20 @@
 
 .ToyBox {
   align-items: center;
-  background: $dark-bg;
   display: flex;
   flex-direction: column;
-  margin-top: -20rem;
-  padding-top: 8rem;
+  margin-top: 5rem;
   width: 100%;
   z-index: 123;
 }
 
 .ToyBox__body {
   align-items: center;
-  border: 1px solid white;
   display: flex;
   flex-direction: column;
-  margin-top: 20rem;
   max-width: 800px;
+  padding-top: 3rem;
+  z-index: 1;
 
   header {
     display: flex;
@@ -29,7 +27,6 @@
 }
 
 .ToyBox__buttons {
-  // border: 1px solid red;
   margin: 4rem;
   span.drum {
     display: flex;
@@ -38,61 +35,15 @@
     cursor: pointer;
     font-size: 8rem;
     transition: all 0.3s ease;
+
+    &:after {
+      font-size: 1rem;
+      content: 'DrumMachine.js';
+    }
+
     &:hover {
       font-size: 10rem;
       transition: all 0.3s ease;
-      &:after {
-        font-size: 1rem;
-        content: 'DrumMachine.js';
-      }
     }
-  }
-}
-
-.modal--close {
-  display: none;
-}
-
-.modal--expand {
-  border: 1px solid red;
-  align-items: center;
-  animation: fadeIn 0.2s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  opacity: 1;
-  // position: absolute;
-  width: 100%;
-  z-index: 1123456798;
-
-  .modal-Project {
-    // border: 1px solid red;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    z-index: 123456789;
-    p {
-      color: $dark-text2;
-      font-size: 2rem;
-      padding: 16px;
-      z-index: 12;
-    }
-    img {
-      max-width: 80%;
-      z-index: 12;
-    }
-  }
-
-  span.modal--expand__background-overlay {
-    background: rgba(0, 0, 0, 0.95);
-    cursor: pointer;
-    content: '';
-    // position: fixed;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 1123459798;
   }
 }

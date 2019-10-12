@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../scss/NavBar.scss';
 
-const NavBar = ({ lightMode, setLightMode, toyBoxRef }) => {
+const NavBar = ({ lightMode, setLightMode }) => {
   return (
     <nav className={`NavBar ${lightMode ? 'lightMode' : ''}`} role="navigation">
-      <a href="/">Home</a>
-      <a href="/#projects">Projects</a>
+      <Link to="/">Home</Link>
+      <Link to="/Projects">Projects</Link>
+
       {lightMode ? (
         <span
           aria-label="yin yang"
@@ -25,15 +27,8 @@ const NavBar = ({ lightMode, setLightMode, toyBoxRef }) => {
           ☯
         </span>
       )}
-      <a
-        href="/#toybox"
-        onClick={() =>
-          toyBoxRef.scrollIntoView({ behavior: 'smooth', box: 'center' })
-        }
-      >
-        ToyBox
-      </a>
-      <a href="/#contact">Contact</a>
+      <Link to="/ToyBox">ToyBox</Link>
+      <Link to="/Contact">Contact</Link>
     </nav>
   );
 };

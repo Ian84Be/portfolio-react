@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../scss/About.scss';
+import '../../scss/About.scss';
 
-const About = ({ lightMode, setLightMode, setAboutRef }) => {
+const About = ({ lightMode, setLightMode }) => {
   const [pizza, setPizza] = useState(false);
   return (
     <div className={`About ${lightMode ? 'lightMode' : ''}`}>
@@ -39,7 +39,7 @@ const About = ({ lightMode, setLightMode, setAboutRef }) => {
           <span role="img" aria-label="gear">
             ⚙
           </span>
-          <p ref={el => setAboutRef(el)}>
+          <p>
             I have spent the last year studying and building projects with
             JavaScript at Lambda School. It has been an intense and rewarding
             experience to say the least. I was also hired by Lambda School to be
