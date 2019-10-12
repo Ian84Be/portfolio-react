@@ -75,6 +75,10 @@
       max-width: 350px;
       text-align: center;
     }
+
+    @media (max-width: 260px) {
+      max-width: 180px;
+    }
   }
 
   header.About__header {
@@ -85,7 +89,8 @@
     margin: 1rem;
 
     @media (max-width: 580px) {
-      padding: 0 1rem;
+      // padding: 0 1rem;
+      padding: 0 1.3rem;
     }
 
     &:last-child {
