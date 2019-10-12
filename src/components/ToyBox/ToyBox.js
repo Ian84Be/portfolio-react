@@ -3,20 +3,20 @@ import React from 'react';
 
 import '../../scss/ToyBox.scss';
 
-const ToyBox = props => {
+const ToyBox = ({ history, lightMode }) => {
   return (
-    <div className="ToyBox">
+    <div className={`ToyBox ${lightMode ? 'lightMode' : ''}`}>
       <div className="ToyBox__body">
-        <header>
+        {/* <header>
           <h3>ToyBox</h3>
-        </header>
+        </header> */}
 
         <section className="ToyBox__buttons">
           <span
             aria-label="drum"
             className="drum"
             role="button"
-            onClick={() => props.history.push('/ToyBox/DrumMachine')}
+            onClick={() => history.push('/ToyBox/DrumMachine')}
           >
             🥁
           </span>

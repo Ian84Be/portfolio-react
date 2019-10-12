@@ -1,38 +1,67 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import hihat from '../../assets/sounds/drums/hihat.wav';
 import kick from '../../assets/sounds/drums/kick.wav';
 import snare from '../../assets/sounds/drums/snare.wav';
 import tom from '../../assets/sounds/drums/tom.wav';
 
+import kickDrumIcon from '../../assets/DrumMachine/img/kickdrum.png';
+import snareDrumIcon from '../../assets/DrumMachine/img/snaredrum2.png';
+import tomDrumIcon from '../../assets/DrumMachine/img/floortom2.png';
+import hiHatIcon from '../../assets/DrumMachine/img/hihat2.png';
+
 import '../../scss/ToyBox/DrumMachine.scss';
 
 const DrumMachine = () => {
-  window.addEventListener('keydown', playSound);
+  useEffect(() => {
+    window.addEventListener('keydown', playSound);
+    return () => window.removeEventListener('keydown', playSound);
+  });
+
   return (
     <div className="DrumMachine__container">
       <div className="controls">
-        <button className="auto-play drums" onClick={autoPlay}>
-          AutoPlay Drums
+        <button className={`auto-play drums`} onClick={autoPlay}>
+          AutoPlay
         </button>
       </div>
 
       <div className="drum-kit__keys">
-        <div data-key="83" className="key">
-          <kbd>S</kbd>
-          <span className="sound">hihat</span>
+        <div
+          data-key="75"
+          className="key"
+          onClick={() => playSound({ keyCode: 75 })}
+        >
+          <kbd>K</kbd>
+          <img alt="tom drum" className="tomDrum" src={tomDrumIcon} />
+          <span className="sound">tom</span>
         </div>
-        <div data-key="68" className="key">
-          <kbd>D</kbd>
-          <span className="sound">kick</span>
-        </div>
-        <div data-key="74" className="key">
+        <div
+          data-key="74"
+          className="key"
+          onClick={() => playSound({ keyCode: 74 })}
+        >
           <kbd>J</kbd>
+          <img alt="snare drum" className="snareDrum" src={snareDrumIcon} />
           <span className="sound">snare</span>
         </div>
-        <div data-key="75" className="key">
-          <kbd>K</kbd>
-          <span className="sound">tom</span>
+        <div
+          data-key="68"
+          className="key"
+          onClick={() => playSound({ keyCode: 68 })}
+        >
+          <kbd>D</kbd>
+          <img alt="kick drum" className="kickDrum" src={kickDrumIcon} />
+          <span className="sound">kick</span>
+        </div>
+        <div
+          data-key="83"
+          className="key"
+          onClick={() => playSound({ keyCode: 83 })}
+        >
+          <kbd>S</kbd>
+          <img alt="hi hat cymbals" className="hihat" src={hiHatIcon} />
+          <span className="sound">hihat</span>
         </div>
       </div>
       <audio data-key="83" src={hihat}></audio>
@@ -42,30 +71,15 @@ const DrumMachine = () => {
     </div>
   );
 
-  function autoPlay(e) {
+  async function autoPlay(e) {
     const drumNums = [83, 68, 74, 75];
-    const guitarNums = [81, 87, 69, 82, 84, 89, 85, 73, 79];
     let min = 0,
-      max,
-      time,
-      type;
-    if (e.target.classList.contains('drums')) {
-      type = 'drums';
-      max = 4;
+      max = 4,
       time = 330;
-      // setPlaying({ drums: true });
-    }
-    if (e.target.classList.contains('guitar')) {
-      type = 'guitar';
-      max = 9;
-      time = 165;
-      // setPlaying({ guitar: true });
-    }
     for (let i = 0; i < 100; i++) {
       let thisNote = 0;
       let rand = Math.floor(Math.random() * (max - min + 1) + min);
-      if (type === 'drums') thisNote = drumNums[rand];
-      if (type === 'guitar') thisNote = guitarNums[rand];
+      thisNote = drumNums[rand];
       thisNote = thisNote ? thisNote : 0; //0 for a silence
       setTimeout(() => playSound({ keyCode: thisNote }), i * time);
     }

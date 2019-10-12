@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import debounce from './utils/debounce';
 
 import Home from './components/Home/Home';
 import NavBar from './components/NavBar';
@@ -49,11 +50,11 @@ function App() {
             <Route
               exact
               path="/ToyBox"
-              render={props => <ToyBox {...props} />}
+              render={props => <ToyBox {...props} lightMode={lightMode} />}
             />
             <Route
               path="/ToyBox/DrumMachine"
-              render={props => <DrumMachine {...props} />}
+              render={props => <DrumMachine {...props} lightMode={lightMode} />}
             />
             <Route path="/Projects" render={props => <Projects {...props} />} />
           </Switch>
@@ -61,25 +62,6 @@ function App() {
       </div>
     </BrowserRouter>
   );
-
-  function debounce(func, wait = 20, immediate = true) {
-    let timeout;
-
-    return function() {
-      let context = this,
-        args = arguments;
-
-      let later = function() {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      };
-
-      let callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) func.apply(context, args);
-    };
-  }
 }
 
 export default App;
