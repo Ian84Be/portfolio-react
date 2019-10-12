@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import allProjects from './components/ToyBox/allProjects';
-import Home from './components/Profile';
+import Profile from './components/Profile';
 import NavBar from './components/NavBar';
 import ToyBox from './components/ToyBox/ToyBox';
 import './scss/App.scss';
@@ -10,11 +10,12 @@ import About from './components/About';
 function App() {
   const [modal, setModal] = useState(false);
   const [viewProj, setViewProj] = useState(allProjects[0]);
+  const [lightMode, setLightMode] = useState(false);
 
   return (
-    <div id="home" className="App">
+    <div id="home" className={`App ${lightMode ? 'lightMode' : ''}`}>
       <header className="App__header">
-        <NavBar />
+        <NavBar lightMode={lightMode} setLightMode={setLightMode} />
       </header>
       <div className={modal ? 'modal--expand' : 'modal--close'}>
         {modal && (
@@ -31,9 +32,9 @@ function App() {
       </div>
 
       <main className="App__body">
-        <Home />
-        <About />
-        <ToyBox setModal={setModal} setViewProj={setViewProj} />
+        <Profile lightMode={lightMode} />
+        <About lightMode={lightMode} setLightMode={setLightMode} />
+        {/* <ToyBox setModal={setModal} setViewProj={setViewProj} /> */}
       </main>
     </div>
   );

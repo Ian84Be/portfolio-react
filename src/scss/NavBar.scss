@@ -4,6 +4,7 @@
   align-items: center;
   background: $dark-bg;
   border-bottom: 1px solid $black;
+  color: $dark-link;
   display: flex;
   justify-content: center;
   left: 0;
@@ -14,11 +15,25 @@
   width: 100%;
   z-index: 12;
 
+  &.lightMode {
+    background: $light-bg;
+    color: $light-text;
+    a {
+      color: $light-link;
+      &:hover {
+        color: $light-text;
+      }
+    }
+  }
+
   a {
     color: $dark-link;
     font-size: 1.5rem;
     margin: 0 1rem;
     text-decoration: none;
+    @media (max-width: 580px) {
+      font-size: 1.3rem;
+    }
     &:hover {
       color: $dark-link-hover;
     }
@@ -28,8 +43,12 @@
   }
 
   span {
+    color: black;
     cursor: pointer;
     font-size: 3rem;
     margin: 0 1rem;
+    @media (max-width: 580px) {
+      font-size: 2rem;
+    }
   }
 }
