@@ -2,7 +2,7 @@
 
 .NavBar {
   align-items: center;
-  background: $dark-section-bg;
+  background: $dark-bg;
   border-bottom: 1px solid $black;
   display: flex;
   justify-content: center;
@@ -12,7 +12,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 123;
+  z-index: 12;
 
   a {
     color: $dark-link;
@@ -25,5 +25,11 @@
     &.active {
       color: black;
     }
+  }
+
+  span {
+    cursor: pointer;
+    font-size: 3rem;
+    margin: 0 1rem;
   }
 }

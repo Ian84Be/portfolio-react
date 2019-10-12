@@ -1,14 +1,19 @@
 @import './palette';
 
-.Portfolio {
-  background: $dark-section-bg;
+.ToyBox {
+  background: $dark-bg;
   border-radius: 4px;
-  margin-top: 16px;
-  padding: 16px;
+  margin-top: -6rem;
+  padding-top: 8rem;
+  width: 100%;
+  z-index: 1;
+}
+
+.ToyBox__body {
   max-width: 800px;
 }
 
-.Portfolio header {
+.ToyBox header {
   display: flex;
   h3 {
     color: $dark-text2;
@@ -16,14 +21,14 @@
   }
 }
 
-.Portfolio__body {
+.ToyBox__body {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
   padding: 8px;
 }
 
-.Portfolio__card {
+.ToyBox__card {
   border-radius: 4px;
   color: $dark-text;
   cursor: pointer;
@@ -38,7 +43,7 @@
     transform: scale(1.2);
   }
 
-  .Portfolio__card-body {
+  .ToyBox__card-body {
     align-items: center;
     display: flex;
     flex-direction: column;

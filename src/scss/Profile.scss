@@ -1,18 +1,40 @@
 @import './palette';
 
-.Home {
+.Profile {
   align-items: center;
-  background: $dark-section-bg;
-  border-radius: 4px;
+  justify-content: center;
+  background: $dark-bg;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
   display: flex;
-  justify-content: space-between;
-  padding: 8px;
-  max-width: 800px;
+  padding: 4rem 0;
+  width: 100%;
+  z-index: 1;
 }
 
-.Home__left-side {
-  // border: 1px solid red;
+.Profile__body {
+  align-items: center;
+  // background: $dark-section-bg;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: space-between;
+  margin: 4rem;
+  max-width: 800px;
+  padding: 8px;
+
+  @media (max-width: 580px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.Profile__left-side {
+  display: flex;
+  flex-direction: column;
   margin-left: 8px;
+  @media (max-width: 580px) {
+    align-items: center;
+  }
   a {
     color: $dark-link;
     font-size: 1rem;
@@ -69,15 +91,18 @@
   }
 }
 
-.Home__right-side {
+.Profile__right-side {
   // border: 1px solid red;
   margin-left: 16px;
   padding: 16px;
   img {
     border-radius: 50%;
     transition: all 0.5s ease;
+    opacity: 0.25;
+    width: 150px;
     &:hover {
       transform: scale(1.1) rotate(-5deg);
+      opacity: 1;
     }
   }
 }

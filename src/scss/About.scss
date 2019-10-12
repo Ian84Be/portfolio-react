@@ -1,0 +1,75 @@
+@import './palette';
+
+.About {
+  align-items: center;
+  justify-content: center;
+  background: rgb(7, 5, 11);
+  background: linear-gradient(
+    180deg,
+    rgba(7, 5, 11, 1) 0%,
+    rgba(9, 9, 121, 1) 50%,
+    rgba(238, 114, 0, 1) 100%
+  );
+  border-bottom-left-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+
+  // prettier-ignore
+  box-shadow: 
+		0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.91),
+		0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+		0 0.63rem 0.33rem hsla(29, 100%, 47%, 0.1),
+		0 0.93rem 0.33rem hsla(29, 100%, 47%, 0.1),
+		0 1.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+		0 2.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+		0 3.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+		0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
+  display: flex;
+  margin-top: 2rem;
+  // padding-bottom: 8rem;
+  width: 100%;
+  z-index: 12;
+
+  .About__body {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.5rem;
+    max-width: 500px;
+    perspective: 1000px;
+    @media (max-width: 580px) {
+      max-width: 350px;
+    }
+  }
+
+  header.About__header {
+    font-size: 2rem;
+  }
+
+  div.About__p {
+    margin: 1rem;
+    &:last-child {
+      color: $dark-bg;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      span {
+        margin-top: 4rem;
+      }
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.2rem;
+    letter-spacing: 0.03rem;
+  }
+
+  span {
+    float: left;
+    font-size: 2rem;
+    margin-right: 0.5rem;
+    margin-top: 0.33rem;
+    &.globe {
+      margin: 0.65rem 0.5rem 0.5rem 0;
+    }
+  }
+}
