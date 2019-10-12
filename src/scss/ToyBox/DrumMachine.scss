@@ -1,13 +1,14 @@
 @import '../palette';
 
-.music-box__container {
+.DrumMachine__container {
+  border: 1px solid red;
   align-items: center;
   background: $dark-section-bg;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 12;
+  z-index: 123456789;
 }
 
 .controls {

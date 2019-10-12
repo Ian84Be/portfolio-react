@@ -5,7 +5,7 @@ import kick from '../../assets/sounds/drums/kick.wav';
 import snare from '../../assets/sounds/drums/snare.wav';
 import tom from '../../assets/sounds/drums/tom.wav';
 
-import '../../scss/Projects/DrumMachine.scss';
+import '../../scss/ToyBox/DrumMachine.scss';
 
 const DrumMachine = () => {
   window.addEventListener('keydown', playSound);
