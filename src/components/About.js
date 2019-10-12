@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../scss/About.scss';
 
-const About = ({ lightMode, setLightMode }) => {
+const About = ({ lightMode, setLightMode, setAboutRef }) => {
+  const [pizza, setPizza] = useState(false);
   return (
     <div className={`About ${lightMode ? 'lightMode' : ''}`}>
       <div className="About__body">
         <header className="About__header">Hello World!</header>
 
         <div className="About__p">
-          <span role="img" aria-label="pizza">
-            🍕
-          </span>
+          {pizza ? (
+            <span
+              role="img"
+              aria-label="pizza"
+              onMouseOut={() => setPizza(false)}
+            >
+              🍕
+            </span>
+          ) : (
+            <span
+              role="img"
+              aria-label="laptop"
+              onMouseOver={() => setPizza(true)}
+            >
+              💻
+            </span>
+          )}
+
           <p>
             I am a full-stack web developer with strong front-end skills and
             military leadership experience. My specialties include Javascript,
@@ -19,10 +35,10 @@ const About = ({ lightMode, setLightMode }) => {
         </div>
 
         <div className="About__p">
-          <span role="img" aria-label="construction worker">
-            👷
+          <span role="img" aria-label="gear">
+            ⚙
           </span>
-          <p>
+          <p ref={el => setAboutRef(el)}>
             I have spent the last year studying and building projects with
             JavaScript at Lambda School. It has been an intense and rewarding
             experience to say the least. I was also hired by Lambda School to be
@@ -38,21 +54,21 @@ const About = ({ lightMode, setLightMode }) => {
           </p>
           {lightMode ? (
             <span
-              aria-label="full moon face"
-              className="globe"
-              role="img"
+              aria-label="yin yang"
+              className="yin-yang"
+              role="button"
               onClick={() => setLightMode(false)}
             >
-              🌝
+              ☯
             </span>
           ) : (
             <span
-              aria-label="sun with face"
-              className="globe"
-              role="img"
+              aria-label="yin yang"
+              className="yin-yang"
+              role="button"
               onClick={() => setLightMode(true)}
             >
-              🌞
+              ☯
             </span>
           )}
         </div>

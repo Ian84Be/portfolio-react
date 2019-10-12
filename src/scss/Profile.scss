@@ -9,6 +9,11 @@
   width: 100%;
   z-index: 1;
 
+  @media (max-width: 475px) {
+    margin-top: 8rem;
+    padding-top: 4rem;
+  }
+
   &.lightMode {
     background: $light-bg;
     color: $light-text;
@@ -22,6 +27,7 @@
 }
 
 .Profile__body {
+  // border: 1px solid red;
   align-items: center;
   border-radius: 8px;
 
@@ -29,7 +35,7 @@
   justify-content: space-between;
   margin: 4rem;
   max-width: 800px;
-  padding: 8px;
+  padding: 0.1rem;
 
   @media (max-width: 580px) {
     flex-direction: column-reverse;
@@ -40,14 +46,18 @@
   display: flex;
   flex-direction: column;
   margin-left: 8px;
+
   @media (max-width: 580px) {
     align-items: center;
+    margin: 0;
   }
+
   a {
+    // border: 1px solid red;
     color: $dark-link;
     font-size: 1rem;
     text-decoration: none;
-    line-height: 2rem;
+    line-height: 3rem;
     &:hover {
       color: $dark-link-hover;
     }
@@ -56,9 +66,19 @@
   h1 {
     font-size: 2rem;
     line-height: 3rem;
+
+    @media (max-width: 580px) {
+      line-height: 2rem;
+      text-align: center;
+    }
   }
   h2 {
     font-size: 1.2rem;
+
+    @media (max-width: 580px) {
+      margin-top: 1rem;
+      text-align: center;
+    }
   }
 
   .icons {
@@ -81,8 +101,14 @@
 }
 
 .Profile__right-side {
+  // border: 1px solid red;
   margin-left: 16px;
   padding: 16px;
+
+  @media (max-width: 580px) {
+    margin: 0;
+  }
+
   &.lightMode {
     img {
       opacity: 0.77;

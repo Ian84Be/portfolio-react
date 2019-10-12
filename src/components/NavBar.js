@@ -8,21 +8,21 @@ const NavBar = ({ lightMode, setLightMode }) => {
       <a href="/#projects">Projects</a>
       {lightMode ? (
         <span
-          aria-label="sun with face"
-          className="globe"
-          role="img"
+          aria-label="yin yang"
+          className="yin-yang"
+          role="button"
           onClick={() => setLightMode(false)}
         >
-          🌞
+          ☯
         </span>
       ) : (
         <span
-          aria-label="full moon face"
-          className="globe"
-          role="img"
+          aria-label="yin yang"
+          className="yin-yang"
+          role="button"
           onClick={() => setLightMode(true)}
         >
-          🌝
+          ☯
         </span>
       )}
       <a href="/toybox">ToyBox</a>

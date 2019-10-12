@@ -1,21 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import allProjects from './components/ToyBox/allProjects';
 import Profile from './components/Profile';
 import NavBar from './components/NavBar';
-import ToyBox from './components/ToyBox/ToyBox';
+// import ToyBox from './components/ToyBox/ToyBox';
 import './scss/App.scss';
 import About from './components/About';
 
 function App() {
+  const [lightMode, setLightMode] = useState(false);
+  const [aboutRef, setAboutRef] = useState(null);
   const [modal, setModal] = useState(false);
   const [viewProj, setViewProj] = useState(allProjects[0]);
-  const [lightMode, setLightMode] = useState(false);
+  const [navLoc, setNavLoc] = useState('top');
+
+  useEffect(() => {
+    window.addEventListener('scroll', debounce(handleScroll));
+    return () => {
+      window.removeEventListener('scroll', debounce(handleScroll));
+    };
+  });
+
+  // console.log(aboutRef);
+  const handleScroll = e => {
+    // console.log(e);
+    // console.log(window.scrollY + window.innerHeight);
+  };
 
   return (
     <div id="home" className={`App ${lightMode ? 'lightMode' : ''}`}>
       <header className="App__header">
-        <NavBar lightMode={lightMode} setLightMode={setLightMode} />
+        <NavBar
+          navLoc={navLoc}
+          lightMode={lightMode}
+          setLightMode={setLightMode}
+        />
       </header>
       <div className={modal ? 'modal--expand' : 'modal--close'}>
         {modal && (
@@ -33,11 +52,34 @@ function App() {
 
       <main className="App__body">
         <Profile lightMode={lightMode} />
-        <About lightMode={lightMode} setLightMode={setLightMode} />
+        <About
+          lightMode={lightMode}
+          setAboutRef={setAboutRef}
+          setLightMode={setLightMode}
+        />
         {/* <ToyBox setModal={setModal} setViewProj={setViewProj} /> */}
       </main>
     </div>
   );
+
+  function debounce(func, wait = 20, immediate = true) {
+    let timeout;
+
+    return function() {
+      let context = this,
+        args = arguments;
+
+      let later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+
+      let callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  }
 }
 
 export default App;

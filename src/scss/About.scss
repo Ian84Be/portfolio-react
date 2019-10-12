@@ -27,6 +27,10 @@
 	 0 3.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
 	 0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
 
+  @media (max-width: 580px) {
+    padding-bottom: 4rem;
+  }
+
   & > * {
     transition: color 0.5s linear;
   }
@@ -42,6 +46,14 @@
     & > * {
       color: $light-text;
     }
+
+    span.yin-yang {
+      transform: rotate(180deg);
+      &:hover {
+        transform: rotate(90deg);
+      }
+    }
+
     box-shadow: 0 0.33rem 0.33rem hsla(2, 100%, 78%, 0.91),
       0 0.33rem 0.33rem hsla(2, 100%, 78%, 0.1),
       0 0.63rem 0.33rem hsla(2, 100%, 78%, 0.1),
@@ -61,6 +73,7 @@
 
     @media (max-width: 580px) {
       max-width: 350px;
+      text-align: center;
     }
   }
 
@@ -70,6 +83,11 @@
 
   div.About__p {
     margin: 1rem;
+
+    @media (max-width: 580px) {
+      padding: 0 1rem;
+    }
+
     &:last-child {
       text-align: center;
       color: $dark-bg;
@@ -77,6 +95,11 @@
       flex-direction: column;
       align-items: center;
       margin-top: 2rem;
+
+      @media (max-width: 580px) {
+        padding: 0 4rem;
+      }
+
       span {
         margin-top: 2rem;
       }
@@ -95,11 +118,16 @@
     margin-right: 0.5rem;
     margin-top: 0.33rem;
     transition: transform 0.5s ease-in;
-    &.globe {
+
+    @media (max-width: 580px) {
+      display: none;
+    }
+
+    &.yin-yang {
       cursor: pointer;
       margin: 0.65rem 0.5rem 0.5rem 0;
       &:hover {
-        transform: scale(11);
+        transform: scale(2) rotate(180deg);
         transition: transform 0.5s ease-out;
       }
     }
