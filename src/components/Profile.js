@@ -12,7 +12,6 @@ const Profile = ({ lightMode }) => {
         <section className="Profile__left-side" role="banner">
           <h1>Ian Belknap</h1>
           <h2>Full Stack Web Developer</h2>
-          <a href="mailto:ian84be@gmail.com">ian84be@gmail.com</a>
 
           <div className="icons">
             <img

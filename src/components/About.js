@@ -12,6 +12,7 @@ const About = ({ lightMode, setLightMode, setAboutRef }) => {
           {pizza ? (
             <span
               role="img"
+              className="pizza"
               aria-label="pizza"
               onMouseOut={() => setPizza(false)}
             >

@@ -17,17 +17,10 @@
   &.lightMode {
     background: $light-bg;
     color: $light-text;
-    a {
-      color: $light-link;
-      &:hover {
-        color: $light-text;
-      }
-    }
   }
 }
 
 .Profile__body {
-  // border: 1px solid red;
   align-items: center;
   border-radius: 8px;
 
@@ -52,17 +45,6 @@
     margin: 0;
   }
 
-  a {
-    // border: 1px solid red;
-    color: $dark-link;
-    font-size: 1rem;
-    text-decoration: none;
-    line-height: 3rem;
-    &:hover {
-      color: $dark-link-hover;
-    }
-  }
-
   h1 {
     font-size: 2rem;
     line-height: 3rem;
@@ -70,6 +52,11 @@
     @media (max-width: 580px) {
       line-height: 2rem;
       text-align: center;
+    }
+
+    @media (min-width: 1200px) {
+      font-size: 3rem;
+      line-height: 4rem;
     }
   }
   h2 {
@@ -79,9 +66,14 @@
       margin-top: 1rem;
       text-align: center;
     }
+
+    @media (min-width: 1200px) {
+      font-size: 1.3rem;
+    }
   }
 
   .icons {
+    margin-top: 0.5rem;
     img {
       cursor: pointer;
       margin: 8px;
@@ -101,7 +93,6 @@
 }
 
 .Profile__right-side {
-  // border: 1px solid red;
   margin-left: 16px;
   padding: 16px;
 
