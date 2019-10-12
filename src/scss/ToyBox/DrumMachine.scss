@@ -2,14 +2,38 @@
 
 .DrumMachine__container {
   align-items: center;
-  background: $dark-section-bg;
+  background: rgb(7, 5, 11);
+  background: linear-gradient(
+    180deg,
+    rgba(7, 5, 11, 1) 0%,
+    rgba(9, 9, 121, 1) 50%,
+    rgba(238, 114, 0, 1) 100%
+  );
+
   border-radius: 8px;
+  color: $dark-text;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 8rem;
+
+  box-shadow: 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.91),
+    0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+    0 0.63rem 0.33rem hsla(29, 100%, 47%, 0.1),
+    0 0.93rem 0.33rem hsla(29, 100%, 47%, 0.1),
+    0 1.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+    0 2.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+    0 3.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+    0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
+
   @media (max-width: 475px) {
     margin-top: 15rem;
+  }
+
+  &.lightMode {
+    background: $light-bg;
+    color: $light-text;
+    box-shadow: none;
   }
 }
 
@@ -62,7 +86,7 @@ button.auto-play {
   align-items: center;
   border: 0.1rem solid black;
   border-radius: 0.5rem;
-  color: $dark-text;
+
   display: flex;
   font-size: 1.5rem;
   flex-direction: column;
@@ -70,6 +94,10 @@ button.auto-play {
   max-width: 200px;
   transition: all 0.07s ease;
   width: 100%;
+
+  @media (max-width: 475px) {
+    font-size: 1rem;
+  }
 
   &:hover {
     border-color: $wesbos;
@@ -82,12 +110,16 @@ button.auto-play {
   }
 
   img {
-    margin: 1rem;
+    // margin: 1rem;
     opacity: 0.5;
-    width: 60%;
+    width: 50%;
   }
 
   img.tomDrum {
+    width: 30%;
+  }
+
+  img.kickDrum {
     width: 40%;
   }
 }
@@ -107,8 +139,7 @@ kbd {
 }
 
 .sound {
-  color: $wesbos;
-  font-size: 1.2rem;
+  // font-size: 1.2rem;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
 }

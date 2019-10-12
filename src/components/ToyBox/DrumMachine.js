@@ -12,14 +12,14 @@ import hiHatIcon from '../../assets/DrumMachine/img/hihat2.png';
 
 import '../../scss/ToyBox/DrumMachine.scss';
 
-const DrumMachine = () => {
+const DrumMachine = ({ lightMode }) => {
   useEffect(() => {
     window.addEventListener('keydown', playSound);
     return () => window.removeEventListener('keydown', playSound);
   });
 
   return (
-    <div className="DrumMachine__container">
+    <div className={`DrumMachine__container ${lightMode ? 'lightMode' : ''}`}>
       <div className="controls">
         <button className={`auto-play drums`} onClick={autoPlay}>
           AutoPlay
