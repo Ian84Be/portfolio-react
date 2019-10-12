@@ -1,0 +1,145 @@
+@import '../palette';
+
+.DrumMachine__container {
+  align-items: center;
+  background: rgb(7, 5, 11);
+  background: linear-gradient(
+    180deg,
+    rgba(7, 5, 11, 1) 0%,
+    rgba(9, 9, 121, 1) 50%,
+    rgba(238, 114, 0, 1) 100%
+  );
+
+  border-radius: 8px;
+  color: $dark-text;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 8rem;
+
+  box-shadow: 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.91),
+    0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+    0 0.63rem 0.33rem hsla(29, 100%, 47%, 0.1),
+    0 0.93rem 0.33rem hsla(29, 100%, 47%, 0.1),
+    0 1.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+    0 2.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+    0 3.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+    0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
+
+  @media (max-width: 475px) {
+    margin-top: 15rem;
+  }
+
+  &.lightMode {
+    background: $light-bg;
+    color: $light-text;
+    box-shadow: none;
+  }
+}
+
+.controls {
+  margin: 10px;
+}
+
+button.auto-play {
+  background: $dark-link;
+  border: 0;
+  border-radius: 4px;
+  color: $dark-bg;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  outline: none;
+  padding: 1rem;
+  transition: all 0.2s ease;
+  width: 120px;
+
+  box-shadow: 2px 2px $wesbos, 4px 4px $wesbos;
+
+  .playing {
+    background: black;
+    box-shadow: 0 0;
+    transform: translate(4px, 4px);
+  }
+
+  &:active {
+    box-shadow: 0 0;
+    transform: translate(4px, 4px);
+  }
+
+  &:hover {
+    background: $wesbos;
+  }
+}
+
+.drum-kit__keys {
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 0.5rem 0.5rem;
+  justify-items: center;
+  padding: 2rem;
+}
+
+.key {
+  align-items: center;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+
+  display: flex;
+  font-size: 1.5rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+  max-width: 200px;
+  transition: all 0.07s ease;
+  width: 100%;
+
+  @media (max-width: 475px) {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    border-color: $wesbos;
+    box-shadow: 0 0 1rem $wesbos;
+    cursor: pointer;
+    transform: scale(1.1);
+    img {
+      opacity: 1;
+    }
+  }
+
+  img {
+    // margin: 1rem;
+    opacity: 0.5;
+    width: 50%;
+  }
+
+  img.tomDrum {
+    width: 30%;
+  }
+
+  img.kickDrum {
+    width: 40%;
+  }
+}
+
+.playing {
+  border-color: $wesbos;
+  box-shadow: 0 0 1rem $wesbos;
+  transform: scale(0.8);
+  img {
+    opacity: 1;
+  }
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.sound {
+  // font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}

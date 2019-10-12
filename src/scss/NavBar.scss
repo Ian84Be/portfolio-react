@@ -13,7 +13,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 12;
+  z-index: 123;
 
   @media (max-width: 475px) {
     flex-direction: column;
@@ -26,12 +26,17 @@
     background: $light-bg;
     color: $light-text;
 
-    span {
-      transform: rotate(180deg);
+    span.yin-yang {
+      transition: all 0.2s ease;
       color: $light-text;
+      &:hover {
+        transform: rotate(180deg);
+      }
     }
+
     a {
       color: $light-link;
+      transition: all 0.2s ease;
       &:hover {
         color: $light-text;
       }
@@ -62,11 +67,17 @@
     }
   }
 
-  span {
+  span.yin-yang {
     color: $dark-text;
     cursor: pointer;
     font-size: 3rem;
     margin: 0 1rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: rotate(180deg);
+      transition: all 0.2s ease;
+    }
 
     @media (max-width: 580px) {
       // font-size: 2rem;
@@ -74,10 +85,6 @@
 
     @media (max-width: 475px) {
       margin: 0.5rem 0;
-    }
-
-    &:hover {
-      transform: scale(1.1);
     }
   }
 }

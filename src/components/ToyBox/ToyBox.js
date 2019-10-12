@@ -1,27 +1,25 @@
-import React, { useState } from 'react';
-import allProjects from './allProjects';
+/* eslint-disable jsx-a11y/accessible-emoji */
+import React from 'react';
+
 import '../../scss/ToyBox.scss';
 
-const ToyBox = ({ setModal, setViewProj }) => {
-  const [projects] = useState(allProjects);
+const ToyBox = ({ history, lightMode }) => {
   return (
-    <div id="ToyBox" className="ToyBox">
+    <div className={`ToyBox ${lightMode ? 'lightMode' : ''}`}>
       <div className="ToyBox__body">
-        <header>
+        {/* <header>
           <h3>ToyBox</h3>
-        </header>
+        </header> */}
 
-        <section className="ToyBox__body" onClick={() => setModal(true)}>
-          {projects.map(p => {
-            return (
-              <div className="ToyBox__card" role="link">
-                <header>{p.name}</header>
-                <div className="ToyBox__card-body">
-                  <img src={p.img} alt={p.name} />
-                </div>
-              </div>
-            );
-          })}
+        <section className="ToyBox__buttons">
+          <span
+            aria-label="drum"
+            className="drum"
+            role="button"
+            onClick={() => history.push('/ToyBox/DrumMachine')}
+          >
+            🥁
+          </span>
         </section>
       </div>
     </div>
