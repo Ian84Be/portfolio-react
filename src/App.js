@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-import allProjects from './components/Projects/allProjects';
-import Home from './components/Home';
+import allProjects from './components/ToyBox/allProjects';
+import Home from './components/Profile';
 import NavBar from './components/NavBar';
-import Portfolio from './components/Portfolio';
+import ToyBox from './components/ToyBox/ToyBox';
 import './scss/App.scss';
+import About from './components/About';
 
 function App() {
   const [modal, setModal] = useState(false);
@@ -28,9 +29,11 @@ function App() {
           onClick={() => setModal(false)}
         />
       </div>
+
       <main className="App__body">
         <Home />
-        <Portfolio setModal={setModal} setViewProj={setViewProj} />
+        <About />
+        <ToyBox setModal={setModal} setViewProj={setViewProj} />
       </main>
     </div>
   );
