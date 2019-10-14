@@ -56,7 +56,10 @@ function App() {
               path="/ToyBox/DrumMachine"
               render={props => <DrumMachine {...props} lightMode={lightMode} />}
             />
-            <Route path="/Projects" render={props => <Projects {...props} />} />
+            <Route
+              path="/Projects"
+              render={props => <Projects {...props} lightMode={lightMode} />}
+            />
           </Switch>
         </main>
       </div>
