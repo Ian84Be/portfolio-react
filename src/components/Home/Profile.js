@@ -14,24 +14,30 @@ const Profile = ({ lightMode }) => {
           <h2>Full Stack Web Developer</h2>
 
           <div className="icons">
-            <img
-              alt="Lambda School"
-              className="lambda"
-              role="button"
-              src={lambdaLogo}
-            />
-            <img
-              alt="GitHub"
-              className="github"
-              role="button"
-              src={githubLight}
-            />
-            <img
-              alt="LinkedIn"
-              className="linkedin"
-              role="button"
-              src={linkedInLogo}
-            />
+            <a href="https://lambdaschool.com/">
+              <img
+                alt="Lambda School"
+                className="lambda"
+                role="button"
+                src={lambdaLogo}
+              />
+            </a>
+            <a href="https://github.com/Ian84Be">
+              <img
+                alt="GitHub"
+                className="github"
+                role="button"
+                src={githubLight}
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/ian-belknap/">
+              <img
+                alt="LinkedIn"
+                className="linkedin"
+                role="button"
+                src={linkedInLogo}
+              />
+            </a>
           </div>
         </section>
 
