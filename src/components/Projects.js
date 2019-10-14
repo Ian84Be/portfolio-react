@@ -1,14 +1,94 @@
 import React from 'react';
+
+import wordUpImg from '../assets/img/wordup.png';
+import designHubImg from '../assets/img/designhub.png';
+import githubLight from '../assets/img/GitHub-Mark-Light-64px.png';
+
 import '../scss/Projects.scss';
 
-const Projects = () => {
+const Projects = ({ history, lightMode }) => {
   return (
-    <div id="portfolio" className="Projects">
-      {/* <header>
-        <h3>Projects</h3>
-      </header> */}
+    <div className={`Projects ${lightMode ? 'lightMode' : ''}`}>
+      <section className="Projects__body">
+        <div className="Projects__card">
+          <h3 className="column-view">WordUp</h3>
+          <img
+            className="Projects__card-thumb"
+            src={wordUpImg}
+            alt="WordUp Gameplay"
+          />
 
-      <section className="Projects__body"></section>
+          <section className="Projects__card-writeup">
+            <header>
+              <h3 className="row-view">WordUp</h3>
+            </header>
+            <ul className="text">
+              <li>A 3-Dimensional word game for 1 - 4 players</li>
+              <li>Independently engineered and styled with custom UI</li>
+              <li>Tech Stack: JavaScript, React, Redux, Sass, Express</li>
+            </ul>
+            <div className="buttons">
+              <button>View</button>
+              <button className="github-btn">
+                <img
+                  alt="GitHub"
+                  className="github"
+                  role="button"
+                  src={githubLight}
+                />
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <div className="Projects__card">
+          <h3 className="column-view">DesignHub</h3>
+          <img
+            className="Projects__card-thumb"
+            src={designHubImg}
+            alt="DesignHub Landing Page"
+          />
+
+          <section className="Projects__card-writeup">
+            <header>
+              <h3 className="row-view">DesignHub</h3>
+            </header>
+            <ul className="text">
+              <li>
+                A web app to store / display design assets and collect immediate
+                feedback from supervisors and clients
+              </li>
+              <li>
+                Built from scratch in less than 8 weeks with 4 other developers
+                and 2 UX designers in an Agile environment
+              </li>
+              <li>
+                Designed and implemented modular, extendable, easily
+                maintainable architecture for state management
+              </li>
+              <li>
+                Achieved stakeholder goals to create design feedback loops that
+                are faster and more productive for users
+              </li>
+              <li>
+                Tech Stack: JavaScript, React, Redux, Sass, Express, AWS S3,
+                Auth0
+              </li>
+            </ul>
+            <div className="buttons">
+              <button>View</button>
+              <button className="github-btn">
+                <img
+                  alt="GitHub"
+                  className="github"
+                  role="button"
+                  src={githubLight}
+                />
+              </button>
+            </div>
+          </section>
+        </div>
+      </section>
     </div>
   );
 };
