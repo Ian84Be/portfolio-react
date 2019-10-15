@@ -12,6 +12,10 @@ server.use(cors());
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
+server.get("*", (req,res) => {
+  response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
+
 server.post('/api/contact', async (req,res) => {
 	const {name, email, message} = req.body;
 	const msg = {
