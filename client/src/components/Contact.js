@@ -22,6 +22,7 @@ const Contact = ({ lightMode }) => {
       ...alert,
       [e.target.name]: false
     });
+    setMessage(null);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -46,6 +47,9 @@ const Contact = ({ lightMode }) => {
         setMessage(data.message);
       } catch (err) {
         console.error(err);
+        setMessage(
+          'Submit Failed, please verify that your e-mail address is correct!'
+        );
       }
     }
   };
