@@ -12,6 +12,8 @@ server.use(cors());
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
+server.use(express.static(path.resolve(__dirname, "../client/build")));
+
 server.get("*", (req,res) => {
   response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
