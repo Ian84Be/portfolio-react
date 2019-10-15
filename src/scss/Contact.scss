@@ -28,7 +28,6 @@
 	 0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
 
   @media (max-width: 800px) {
-    padding-top: 0;
     padding-bottom: 4rem;
   }
 
@@ -56,6 +55,36 @@
       0 2.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
       0 3.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
       0 4.33rem 0.33rem hsla(212, 100%, 78%, 0.1);
+
+    label {
+      color: $light-text;
+    }
+
+    input {
+      background: $dark-link-hover;
+      color: $light-text;
+    }
+
+    input:not(:focus):invalid {
+      border: 2px solid $light-alert;
+    }
+
+    textarea {
+      background: $dark-link-hover;
+      color: $light-text;
+    }
+
+    textarea:not(:focus):invalid {
+      border: 2px solid $light-alert;
+    }
+
+    div.required.alert {
+      &:after {
+        margin: 0.4rem;
+        content: 'This field is required';
+        color: $light-alert;
+      }
+    }
   }
 }
 
