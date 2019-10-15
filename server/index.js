@@ -15,7 +15,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 server.use(express.static(path.resolve(__dirname, "../client/build")));
 
 server.get("*", (req,res) => {
-  response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
 
 server.post('/api/contact', async (req,res) => {
