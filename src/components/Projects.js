@@ -2,11 +2,12 @@ import React from 'react';
 
 import wordUpImg from '../assets/img/wordup.png';
 import designHubImg from '../assets/img/designhub.png';
-import githubLight from '../assets/img/GitHub-Mark-Light-64px.png';
+// import githubLight from '../assets/img/GitHub-Mark-Light-64px.png';
+import githubDark from '../assets/img/GitHub-Mark-64px.png';
 
 import '../scss/Projects.scss';
 
-const Projects = ({ history, lightMode }) => {
+const Projects = ({ lightMode }) => {
   return (
     <div className={`Projects ${lightMode ? 'lightMode' : ''}`}>
       <section className="Projects__body">
@@ -39,7 +40,7 @@ const Projects = ({ history, lightMode }) => {
                     alt="GitHub"
                     className="github"
                     role="button"
-                    src={githubLight}
+                    src={githubDark}
                   />
                 </button>
               </a>
@@ -93,7 +94,7 @@ const Projects = ({ history, lightMode }) => {
                     alt="GitHub"
                     className="github"
                     role="button"
-                    src={githubLight}
+                    src={githubDark}
                   />
                 </button>
               </a>

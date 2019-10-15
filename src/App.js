@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import debounce from './utils/debounce';
 
+import Contact from './components/Contact';
 import Home from './components/Home/Home';
 import NavBar from './components/NavBar';
 import Projects from './components/Projects';
 
 import ToyBox from './components/ToyBox/ToyBox';
 import DrumMachine from './components/ToyBox/DrumMachine';
+
 import './scss/App.scss';
 
 function App() {
@@ -59,6 +61,10 @@ function App() {
             <Route
               path="/Projects"
               render={props => <Projects {...props} lightMode={lightMode} />}
+            />
+            <Route
+              path="/Contact"
+              render={props => <Contact {...props} lightMode={lightMode} />}
             />
           </Switch>
         </main>
