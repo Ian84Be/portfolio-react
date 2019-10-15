@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../scss/Contact.scss';
 
 const Contact = ({ lightMode }) => {
@@ -14,6 +15,8 @@ const Contact = ({ lightMode }) => {
     message: null
   });
 
+  const [message, setMessage] = useState(null);
+
   const onChange = e => {
     setAlert({
       ...alert,
@@ -22,7 +25,7 @@ const Contact = ({ lightMode }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const { name, email, message } = formData;
     const newAlert = {};
@@ -32,16 +35,35 @@ const Contact = ({ lightMode }) => {
     const v = Object.values(newAlert);
     if (v.includes(true)) {
       setAlert({ ...alert, ...newAlert });
-    } else console.log('handleSubmit', formData);
+    } else {
+      try {
+        const { data } = await axios.post(
+          'http://localhost:5000/api/contact',
+          formData
+        );
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+        setMessage(data.message);
+      } catch (err) {
+        console.error(err);
+      }
+    }
   };
 
   return (
     <div className={`Contact ${lightMode ? 'lightMode' : ''}`}>
       <section className="Contact__body">
         <form onSubmit={e => e.preventDefault()}>
-          <header>
-            Please don't hesitate to send me your questions and comments!
-          </header>
+          {message ? (
+            <header>{message}</header>
+          ) : (
+            <header>
+              Please don't hesitate to send me your questions and comments!
+            </header>
+          )}
           <div className={alert.name ? 'required alert' : 'required'}>
             <label htmlFor="name">Name</label>
             <input
