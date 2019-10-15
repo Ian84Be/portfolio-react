@@ -37,10 +37,7 @@ const Contact = ({ lightMode }) => {
       setAlert({ ...alert, ...newAlert });
     } else {
       try {
-        const { data } = await axios.post(
-          'http://localhost:5000/api/contact',
-          formData
-        );
+        const { data } = await axios.post('api/contact', formData);
         setFormData({
           name: '',
           email: '',
