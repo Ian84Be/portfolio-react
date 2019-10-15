@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import debounce from './utils/debounce';
 
 import Contact from './components/Contact';
 import Home from './components/Home/Home';
@@ -15,19 +14,6 @@ import './scss/App.scss';
 
 function App() {
   const [lightMode, setLightMode] = useState(false);
-
-  useEffect(() => {
-    window.addEventListener('scroll', debounce(handleScroll));
-    return () => {
-      window.removeEventListener('scroll', debounce(handleScroll));
-    };
-  });
-
-  const handleScroll = e => {
-    return;
-    // console.log(e);
-    // console.log(window.scrollY + window.innerHeight);
-  };
 
   return (
     <BrowserRouter>

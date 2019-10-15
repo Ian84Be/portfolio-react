@@ -39,6 +39,9 @@ const Contact = ({ lightMode }) => {
     <div className={`Contact ${lightMode ? 'lightMode' : ''}`}>
       <section className="Contact__body">
         <form onSubmit={e => e.preventDefault()}>
+          <header>
+            Please don't hesitate to send me your questions and comments!
+          </header>
           <div className={alert.name ? 'required alert' : 'required'}>
             <label htmlFor="name">Name</label>
             <input
