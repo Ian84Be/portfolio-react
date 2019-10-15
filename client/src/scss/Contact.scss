@@ -1,0 +1,211 @@
+@import './palette';
+
+.Contact {
+  align-items: center;
+  background: rgb(7, 5, 11);
+  background: linear-gradient(
+    180deg,
+    rgba(7, 5, 11, 1) 0%,
+    rgba(9, 9, 121, 1) 50%,
+    rgba(238, 114, 0, 1) 100%
+  );
+  border-bottom-left-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  // padding: 4rem 0;
+  width: 100%;
+
+  // prettier-ignore
+  box-shadow: 
+	 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.91),
+	 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 0.63rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 0.93rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 1.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 2.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 3.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
+
+  @media (max-width: 800px) {
+    margin-top: 4rem;
+  }
+
+  @media (max-width: 475px) {
+    margin-top: 12rem;
+    padding-bottom: 4rem;
+  }
+
+  & > * {
+    transition: color 0.5s linear;
+  }
+
+  &.lightMode {
+    background: $light-bg;
+    color: $light-text;
+    & > * {
+      color: $light-text;
+    }
+
+    box-shadow: 0 0.33rem 0.33rem hsla(212, 100%, 78%, 0.91),
+      0 0.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
+      0 0.63rem 0.33rem hsla(212, 100%, 78%, 0.1),
+      0 0.93rem 0.33rem hsla(212, 100%, 78%, 0.1),
+      0 1.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
+      0 2.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
+      0 3.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
+      0 4.33rem 0.33rem hsla(212, 100%, 78%, 0.1);
+
+    label {
+      color: $light-text;
+    }
+
+    input {
+      background: $dark-link-hover;
+      color: $light-text;
+    }
+
+    input:not(:focus):invalid {
+      border: 2px solid $light-alert;
+    }
+
+    textarea {
+      background: $dark-link-hover;
+      color: $light-text;
+    }
+
+    textarea:not(:focus):invalid {
+      border: 2px solid $light-alert;
+    }
+
+    div.required.alert {
+      &:after {
+        margin: 0.4rem;
+        content: 'This field is required';
+        color: $light-alert;
+      }
+    }
+  }
+}
+
+.Contact__body {
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin: 4rem;
+  max-width: 800px;
+  padding: 0.1rem;
+  width: 100%;
+
+  form {
+    // border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    margin: 2% 5%;
+    max-width: 500px;
+    width: 80%;
+
+    header {
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    div.required {
+      display: flex;
+      flex-direction: column;
+    }
+
+    div.required.alert {
+      &:after {
+        margin: 0.4rem;
+        content: 'This field is required';
+        color: $alert;
+      }
+    }
+
+    label {
+      color: $dark-text2;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1rem;
+      margin-top: 30px;
+    }
+
+    input {
+      background-color: $dark-bg;
+      border: none;
+      border-radius: 5px;
+      color: $dark-text;
+      font-size: 0.8rem;
+      letter-spacing: 0.11rem;
+      margin-top: 0.4rem;
+      padding: 10px;
+      outline: none;
+      font-family: inherit; // need this to override defaults
+      font-size: inherit; // need this to override defaults
+
+      &:hover,
+      &:focus {
+        outline: auto 4px -webkit-focus-ring-color;
+      }
+      &:not(:focus):invalid {
+        border: 2px solid $alert;
+      }
+    }
+
+    textarea {
+      background-color: $dark-bg;
+      border: none;
+      border-radius: 5px;
+      color: $dark-text;
+      font-size: 0.8rem;
+      letter-spacing: 0.11rem;
+      margin-top: 0.4rem;
+      outline: none;
+      padding: 10px;
+      resize: vertical;
+      font-family: inherit; // need this to override defaults
+      font-size: inherit; // need this to override defaults
+
+      &:hover,
+      &:focus {
+        outline: auto 4px -webkit-focus-ring-color;
+      }
+      &:not(:focus):invalid {
+        border: 2px solid $alert;
+      }
+    }
+
+    button {
+      align-self: center;
+      background: $dark-link;
+      border: 0;
+      border-radius: 4px;
+      box-shadow: 2px 2px $wesbos, 4px 4px $wesbos;
+      color: $dark-bg;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 2rem;
+      outline: none;
+      padding: 1rem;
+      transition: all 0.2s ease;
+      width: 50%;
+
+      @media (max-width: 475px) {
+        width: 80%;
+      }
+
+      &:active {
+        box-shadow: 0 0;
+        transform: translate(4px, 4px);
+      }
+
+      &:hover {
+        background: $wesbos;
+      }
+    }
+  }
+}
