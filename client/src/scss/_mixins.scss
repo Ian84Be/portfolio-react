@@ -1,0 +1,103 @@
+@import './palette';
+
+@mixin ComponentWrapper {
+  align-items: center;
+  background: rgb(7, 5, 11);
+  background: linear-gradient(
+    180deg,
+    rgba(7, 5, 11, 1) 0%,
+    rgba(9, 9, 121, 1) 50%,
+    rgba(238, 114, 0, 1) 100%
+  );
+  border-bottom-left-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  width: 100%;
+  // z-index: 1234;
+
+  // prettier-ignore
+  box-shadow: 
+	 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.91),
+	 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 0.63rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 0.93rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 1.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 2.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 3.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
+	 0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
+
+  @media (max-width: 580px) {
+    padding-bottom: 4rem;
+  }
+
+  & > * {
+    transition: color 0.5s linear;
+  }
+
+  &.lightMode {
+    background: rgb(143, 195, 255);
+    background: linear-gradient(
+      180deg,
+      rgba(143, 195, 255, 1) 0%,
+      rgba(251, 255, 143, 1) 50%,
+      rgba(255, 147, 143, 1) 100%
+    );
+
+    // prettier-ignore
+    box-shadow: 0 0.33rem 0.33rem hsla(2, 100%, 78%, 0.91),
+      0 0.33rem 0.33rem hsla(2, 100%, 78%, 0.1),
+      0 0.63rem 0.33rem hsla(2, 100%, 78%, 0.1),
+      0 0.93rem 0.33rem hsla(2, 100%, 78%, 0.1),
+      0 1.33rem 0.33rem hsla(2, 100%, 78%, 0.1),
+      0 2.33rem 0.33rem hsla(2, 100%, 78%, 0.1),
+      0 3.33rem 0.33rem hsla(2, 100%, 78%, 0.1),
+      0 4.33rem 0.33rem hsla(2, 100%, 78%, 0.1);
+
+    & > * {
+      color: $light-text;
+    }
+  }
+}
+
+@mixin lightMode-altBG {
+  background: $light-bg;
+  box-shadow: 0 0.33rem 0.33rem hsla(212, 100%, 78%, 0.91),
+    0 0.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
+    0 0.63rem 0.33rem hsla(212, 100%, 78%, 0.1),
+    0 0.93rem 0.33rem hsla(212, 100%, 78%, 0.1),
+    0 1.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
+    0 2.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
+    0 3.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
+    0 4.33rem 0.33rem hsla(212, 100%, 78%, 0.1);
+}
+
+@mixin button {
+  align-self: center;
+  background: $dark-link;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 2px 2px $wesbos, 4px 4px $wesbos;
+  color: $dark-bg;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  outline: none;
+  padding: 1rem;
+  transition: all 0.2s ease;
+  width: 50%;
+
+  @media (max-width: 475px) {
+    width: 80%;
+  }
+
+  &:active {
+    box-shadow: 0 0;
+    transform: translate(4px, 4px);
+  }
+
+  &:hover {
+    background: $wesbos;
+  }
+}

@@ -1,85 +1,32 @@
 @import './palette';
+@import './mixins';
 
 .About {
-  align-items: center;
-  justify-content: center;
-  background: rgb(7, 5, 11);
-  background: linear-gradient(
-    180deg,
-    rgba(7, 5, 11, 1) 0%,
-    rgba(9, 9, 121, 1) 50%,
-    rgba(238, 114, 0, 1) 100%
-  );
-  border-bottom-left-radius: 50% 50%;
-  border-bottom-right-radius: 50% 50%;
-  display: flex;
-  padding-top: 2rem;
-  width: 100%;
-  z-index: 1234;
-
-  // prettier-ignore
-  box-shadow: 
-	 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.91),
-	 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 0.63rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 0.93rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 1.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 2.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 3.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
-
-  @media (max-width: 580px) {
-    padding-bottom: 4rem;
-  }
-
-  & > * {
-    transition: color 0.5s linear;
-  }
+  @include ComponentWrapper();
 
   &.lightMode {
-    background: rgb(143, 195, 255);
-    background: linear-gradient(
-      180deg,
-      rgba(143, 195, 255, 1) 0%,
-      rgba(251, 255, 143, 1) 50%,
-      rgba(255, 147, 143, 1) 100%
-    );
-    & > * {
-      color: $light-text;
-    }
-
     span.yin-yang {
       transform: rotate(180deg);
       &:hover {
         transform: scale(2) rotate(270deg);
       }
     }
+  }
+}
 
-    box-shadow: 0 0.33rem 0.33rem hsla(2, 100%, 78%, 0.91),
-      0 0.33rem 0.33rem hsla(2, 100%, 78%, 0.1),
-      0 0.63rem 0.33rem hsla(2, 100%, 78%, 0.1),
-      0 0.93rem 0.33rem hsla(2, 100%, 78%, 0.1),
-      0 1.33rem 0.33rem hsla(2, 100%, 78%, 0.1),
-      0 2.33rem 0.33rem hsla(2, 100%, 78%, 0.1),
-      0 3.33rem 0.33rem hsla(2, 100%, 78%, 0.1),
-      0 4.33rem 0.33rem hsla(2, 100%, 78%, 0.1);
+.About__body {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.5rem;
+  max-width: 500px;
+
+  @media (max-width: 580px) {
+    max-width: 375px;
+    text-align: center;
   }
 
-  .About__body {
-    display: flex;
-    flex-direction: column;
-    margin: 0 0.5rem;
-    max-width: 500px;
-    perspective: 1000px;
-
-    @media (max-width: 580px) {
-      max-width: 350px;
-      text-align: center;
-    }
-
-    @media (max-width: 260px) {
-      max-width: 180px;
-    }
+  @media (max-width: 260px) {
+    max-width: 180px;
   }
 
   header.About__header {
@@ -87,9 +34,9 @@
   }
 
   div.About__p {
-    margin: 1rem;
+    margin: 1rem 0;
 
-    @media (max-width: 580px) {
+    @media (max-width: 350px) {
       padding: 0 1.3rem;
     }
 

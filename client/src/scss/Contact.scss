@@ -1,32 +1,12 @@
 @import './palette';
+@import './mixins';
 
 .Contact {
-  align-items: center;
-  background: rgb(7, 5, 11);
-  background: linear-gradient(
-    180deg,
-    rgba(7, 5, 11, 1) 0%,
-    rgba(9, 9, 121, 1) 50%,
-    rgba(238, 114, 0, 1) 100%
-  );
-  border-bottom-left-radius: 50% 50%;
-  border-bottom-right-radius: 50% 50%;
-  display: flex;
+  @include ComponentWrapper();
+  // border: 1px solid white;
   flex-direction: column;
   margin-top: 4rem;
-  // padding: 4rem 0;
   width: 100%;
-
-  // prettier-ignore
-  box-shadow: 
-	 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.91),
-	 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 0.63rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 0.93rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 1.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 2.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 3.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
 
   @media (max-width: 800px) {
     margin-top: 4rem;
@@ -37,25 +17,8 @@
     padding-bottom: 4rem;
   }
 
-  & > * {
-    transition: color 0.5s linear;
-  }
-
   &.lightMode {
-    background: $light-bg;
-    color: $light-text;
-    & > * {
-      color: $light-text;
-    }
-
-    box-shadow: 0 0.33rem 0.33rem hsla(212, 100%, 78%, 0.91),
-      0 0.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
-      0 0.63rem 0.33rem hsla(212, 100%, 78%, 0.1),
-      0 0.93rem 0.33rem hsla(212, 100%, 78%, 0.1),
-      0 1.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
-      0 2.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
-      0 3.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
-      0 4.33rem 0.33rem hsla(212, 100%, 78%, 0.1);
+    @include lightMode-altBG();
 
     label {
       color: $light-text;
@@ -179,33 +142,8 @@
     }
 
     button {
-      align-self: center;
-      background: $dark-link;
-      border: 0;
-      border-radius: 4px;
-      box-shadow: 2px 2px $wesbos, 4px 4px $wesbos;
-      color: $dark-bg;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 700;
+      @include button();
       margin-top: 2rem;
-      outline: none;
-      padding: 1rem;
-      transition: all 0.2s ease;
-      width: 50%;
-
-      @media (max-width: 475px) {
-        width: 80%;
-      }
-
-      &:active {
-        box-shadow: 0 0;
-        transform: translate(4px, 4px);
-      }
-
-      &:hover {
-        background: $wesbos;
-      }
     }
   }
 }

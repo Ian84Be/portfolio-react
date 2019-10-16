@@ -1,67 +1,23 @@
 @import './palette';
+@import './mixins';
+
 .Projects {
-  align-items: center;
-  background: rgb(7, 5, 11);
-  background: linear-gradient(
-    180deg,
-    rgba(7, 5, 11, 1) 0%,
-    rgba(9, 9, 121, 1) 50%,
-    rgba(238, 114, 0, 1) 100%
-  );
+  @include ComponentWrapper();
   border-bottom-left-radius: 20% 20%;
   border-bottom-right-radius: 20% 20%;
-  display: flex;
-  flex-direction: column;
-  padding: 4rem 0;
-  width: 100%;
-
-  // prettier-ignore
-  box-shadow: 
-	 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.91),
-	 0 0.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 0.63rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 0.93rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 1.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 2.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 3.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
-	 0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
-
-  @media (max-width: 800px) {
-    // padding-top: 0;
-    padding-bottom: 4rem;
-  }
 
   @media (max-width: 475px) {
     margin-top: 8rem;
     padding-top: 2rem;
   }
 
-  & > * {
-    transition: color 0.5s linear;
-  }
-
   &.lightMode {
-    background: $light-bg;
-    color: $light-text;
-    & > * {
-      color: $light-text;
-    }
-
-    box-shadow: 0 0.33rem 0.33rem hsla(212, 100%, 78%, 0.91),
-      0 0.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
-      0 0.63rem 0.33rem hsla(212, 100%, 78%, 0.1),
-      0 0.93rem 0.33rem hsla(212, 100%, 78%, 0.1),
-      0 1.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
-      0 2.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
-      0 3.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
-      0 4.33rem 0.33rem hsla(212, 100%, 78%, 0.1);
+    @include lightMode-altBG();
   }
 }
 
 .Projects__body {
   // border: 1px solid white;
-  display: flex;
-  flex-direction: column;
   margin: 4rem;
   max-width: 800px;
   padding: 0.1rem;
@@ -73,6 +29,10 @@
   display: flex;
   justify-content: space-between;
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   h3.column-view {
     display: none;
     font-size: 2.2rem;
@@ -80,8 +40,9 @@
   }
 
   @media (max-width: 800px) {
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+
     h3.column-view {
       display: flex;
     }
@@ -138,32 +99,17 @@
 
   .buttons {
     display: flex;
+
     a {
       margin: 1rem;
       width: 100%;
     }
 
     button {
-      background: $dark-link;
-      border: 0;
-      border-radius: 4px;
-      box-shadow: 2px 2px $wesbos, 4px 4px $wesbos;
-      color: $dark-bg;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 700;
-      outline: none;
-      padding: 1rem;
-      transition: all 0.2s ease;
+      @include button();
       width: 100%;
-
-      &:active {
-        box-shadow: 0 0;
-        transform: translate(4px, 4px);
-      }
-
-      &:hover {
-        background: $wesbos;
+      @media (max-width: 475px) {
+        width: 100%;
       }
     }
 
@@ -171,7 +117,6 @@
       align-items: center;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       padding: 0.59rem;
       img {
         width: 2rem;
