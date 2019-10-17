@@ -2,7 +2,8 @@
 Full Stack Web Developer | JavaScript, React, Redux, CSS, Node, Express | Music Enthusiast
 
 [www.ian-belknap.com](https://www.ian-belknap.com)
-[find me on linkedin](https://www.linkedin.com/in/ian-belknap/)
+
+[www.linkedin.com/in/ian-belknap](https://www.linkedin.com/in/ian-belknap/)
 
 ## Installation Instructions
 
