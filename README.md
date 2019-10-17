@@ -1,7 +1,7 @@
 # Ian Belknap | Portfolio
 Full Stack Web Developer | JavaScript, React, Redux, CSS, Node, Express | Music Enthusiast
 
-[https://www.ian-belknap.com](www.ian-belknap.com)
+[www.ian-belknap.com](https://www.ian-belknap.com)
 
 ## Installation Instructions
 
