@@ -15,7 +15,7 @@ To get the app running locally:
 	- **cd client/**
 	- **yarn** to install frontend dependencies
 	- **yarn start** to start the local client
----
+	
 ## Tech Stack
 
 - JavaScript
@@ -23,4 +23,3 @@ To get the app running locally:
 - Sass
 - Express
 - SendGrid
----
