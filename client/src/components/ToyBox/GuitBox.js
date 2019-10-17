@@ -42,7 +42,6 @@ const GuitBox = ({ lightMode }) => {
           className="key"
           onClick={() => playSound({ keyCode: 81 })}
         >
-          <span className="sound">C3</span>
           <kbd>Q</kbd>
         </div>
         <div
@@ -50,7 +49,6 @@ const GuitBox = ({ lightMode }) => {
           className="key"
           onClick={() => playSound({ keyCode: 87 })}
         >
-          <span className="sound">Eb3</span>
           <kbd>W</kbd>
         </div>
         <div
@@ -58,7 +56,6 @@ const GuitBox = ({ lightMode }) => {
           className="key"
           onClick={() => playSound({ keyCode: 69 })}
         >
-          <span className="sound">G3</span>
           <kbd>E</kbd>
         </div>
         <div
@@ -66,7 +63,6 @@ const GuitBox = ({ lightMode }) => {
           className="key"
           onClick={() => playSound({ keyCode: 82 })}
         >
-          <span className="sound">C4</span>
           <kbd>R</kbd>
         </div>
         <div
@@ -74,7 +70,6 @@ const GuitBox = ({ lightMode }) => {
           className="key"
           onClick={() => playSound({ keyCode: 84 })}
         >
-          <span className="sound">Eb4</span>
           <kbd>T</kbd>
         </div>
         <div
@@ -90,7 +85,6 @@ const GuitBox = ({ lightMode }) => {
           className="key"
           onClick={() => playSound({ keyCode: 85 })}
         >
-          <span className="sound">C5</span>
           <kbd>U</kbd>
         </div>
         <div
@@ -98,7 +92,6 @@ const GuitBox = ({ lightMode }) => {
           className="key"
           onClick={() => playSound({ keyCode: 73 })}
         >
-          <span className="sound">Eb5</span>
           <kbd>I</kbd>
         </div>
         <div
@@ -106,7 +99,6 @@ const GuitBox = ({ lightMode }) => {
           className="key"
           onClick={() => playSound({ keyCode: 79 })}
         >
-          <span className="sound">G5</span>
           <kbd>O</kbd>
         </div>
       </div>
