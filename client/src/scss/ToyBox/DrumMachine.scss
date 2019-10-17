@@ -44,9 +44,11 @@
 
 button.auto-play.drums {
   @include button();
-  // background: $dark-link;
-  // transition: all 0.2s ease;
   width: 100%;
+
+  @media (max-width: 475px) {
+    width: 100%;
+  }
 
   .playing {
     background: black;
