@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 
 import ToyBox from './components/ToyBox/ToyBox';
 import DrumMachine from './components/ToyBox/DrumMachine';
+import GuitBox from './components/ToyBox/GuitBox';
 
 import './scss/App.scss';
 
@@ -45,6 +46,11 @@ function App() {
             <Route
               path="/ToyBox/DrumMachine"
               render={props => <DrumMachine {...props} lightMode={lightMode} />}
+            />
+            />
+            <Route
+              path="/ToyBox/GuitBox"
+              render={props => <GuitBox {...props} lightMode={lightMode} />}
             />
             <Route
               path="/Projects"

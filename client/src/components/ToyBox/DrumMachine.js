@@ -20,20 +20,14 @@ const DrumMachine = ({ lightMode }) => {
 
   return (
     <div className={`DrumMachine__container ${lightMode ? 'lightMode' : ''}`}>
-      <div className="controls">
-        <button className={`auto-play drums`} onClick={autoPlay}>
-          AutoPlay
-        </button>
-      </div>
-
       <div className="drum-kit__keys">
         <div
           data-key="75"
           className="key"
           onClick={() => playSound({ keyCode: 75 })}
         >
-          <kbd>K</kbd>
           <img alt="tom drum" className="tomDrum" src={tomDrumIcon} />
+          <kbd>K</kbd>
           <span className="sound">tom</span>
         </div>
         <div
@@ -41,8 +35,8 @@ const DrumMachine = ({ lightMode }) => {
           className="key"
           onClick={() => playSound({ keyCode: 74 })}
         >
-          <kbd>J</kbd>
           <img alt="snare drum" className="snareDrum" src={snareDrumIcon} />
+          <kbd>J</kbd>
           <span className="sound">snare</span>
         </div>
         <div
@@ -50,8 +44,8 @@ const DrumMachine = ({ lightMode }) => {
           className="key"
           onClick={() => playSound({ keyCode: 68 })}
         >
-          <kbd>D</kbd>
           <img alt="kick drum" className="kickDrum" src={kickDrumIcon} />
+          <kbd>D</kbd>
           <span className="sound">kick</span>
         </div>
         <div
@@ -59,11 +53,18 @@ const DrumMachine = ({ lightMode }) => {
           className="key"
           onClick={() => playSound({ keyCode: 83 })}
         >
-          <kbd>S</kbd>
           <img alt="hi hat cymbals" className="hihat" src={hiHatIcon} />
+          <kbd>S</kbd>
           <span className="sound">hihat</span>
         </div>
       </div>
+
+      <div className="controls">
+        <button className={`auto-play drums`} onClick={autoPlay}>
+          AutoPlay
+        </button>
+      </div>
+
       <audio data-key="83" src={hihat}></audio>
       <audio data-key="68" src={kick}></audio>
       <audio data-key="74" src={snare}></audio>
