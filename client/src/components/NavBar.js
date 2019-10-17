@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink as Link } from 'react-router-dom';
 import '../scss/NavBar.scss';
 
 const NavBar = ({ lightMode, setLightMode }) => {
   return (
     <nav className={`NavBar ${lightMode ? 'lightMode' : ''}`} role="navigation">
-      <Link to="/">Home</Link>
+      <Link exact to="/">
+        Home
+      </Link>
       <Link to="/Projects">Projects</Link>
 
       {lightMode ? (

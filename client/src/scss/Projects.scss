@@ -3,12 +3,11 @@
 
 .Projects {
   @include ComponentWrapper();
-  border-bottom-left-radius: 20% 20%;
-  border-bottom-right-radius: 20% 20%;
+  @include darkMode-altBG();
+  margin-top: 2rem;
 
   @media (max-width: 475px) {
-    margin-top: 8rem;
-    padding-top: 2rem;
+    margin-top: 12rem;
   }
 
   &.lightMode {
@@ -17,15 +16,14 @@
 }
 
 .Projects__body {
-  // border: 1px solid white;
-  margin: 4rem;
+  margin: 2rem;
+  margin-bottom: 0;
   max-width: 800px;
   padding: 0.1rem;
 }
 
 .Projects__card {
   margin-bottom: 4rem;
-  // border: 1px solid magenta;
   display: flex;
   justify-content: space-between;
 
@@ -36,7 +34,6 @@
   h3.column-view {
     display: none;
     font-size: 2.2rem;
-    margin: 1rem 0;
   }
 
   @media (max-width: 800px) {
@@ -70,6 +67,7 @@
     height: 20rem;
     object-fit: cover;
     opacity: 0.65;
+    margin-top: 1rem;
 
     &:hover {
       border: 0.25rem inset $wesbos;
@@ -91,6 +89,7 @@
     flex-direction: column;
     font-size: 1.3rem;
     list-style: square inside;
+    margin: 1rem;
 
     li {
       margin: 1rem;
@@ -108,6 +107,7 @@
     button {
       @include button();
       width: 100%;
+
       @media (max-width: 475px) {
         width: 100%;
       }

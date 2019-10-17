@@ -27,6 +27,7 @@ const Contact = ({ lightMode }) => {
   };
 
   const handleSubmit = async e => {
+    //TODO loading animation
     e.preventDefault();
     const { name, email, message } = formData;
     const newAlert = {};
@@ -59,11 +60,9 @@ const Contact = ({ lightMode }) => {
       <section className="Contact__body">
         <form onSubmit={e => e.preventDefault()}>
           {message ? (
-            <header>{message}</header>
+            <header className="alert-message">{message}</header>
           ) : (
-            <header>
-              Please don't hesitate to send me your questions and comments!
-            </header>
+            <header>What's on your mind?</header>
           )}
           <div className={alert.name ? 'required alert' : 'required'}>
             <label htmlFor="name">Name</label>

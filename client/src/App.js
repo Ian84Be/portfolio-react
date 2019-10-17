@@ -12,6 +12,8 @@ import DrumMachine from './components/ToyBox/DrumMachine';
 
 import './scss/App.scss';
 
+//TODO lazy loading for sound & img assets
+
 function App() {
   const [lightMode, setLightMode] = useState(false);
 

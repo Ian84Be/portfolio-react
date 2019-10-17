@@ -2,11 +2,11 @@
 
 @mixin ComponentWrapper {
   align-items: center;
-  background: rgb(7, 5, 11);
+  background: $dark-bg;
   background: linear-gradient(
     180deg,
     rgba(7, 5, 11, 1) 0%,
-    rgba(9, 9, 121, 1) 50%,
+    rgba(9, 9, 121, 1) 60%,
     rgba(238, 114, 0, 1) 100%
   );
   border-bottom-left-radius: 50% 50%;
@@ -28,10 +28,6 @@
 	 0 3.33rem 0.33rem hsla(29, 100%, 47%, 0.1),
 	 0 4.33rem 0.33rem hsla(29, 100%, 47%, 0.1);
 
-  @media (max-width: 580px) {
-    padding-bottom: 4rem;
-  }
-
   & > * {
     transition: color 0.5s linear;
   }
@@ -41,7 +37,7 @@
     background: linear-gradient(
       180deg,
       rgba(143, 195, 255, 1) 0%,
-      rgba(251, 255, 143, 1) 50%,
+      rgba(251, 255, 143, 1) 77%,
       rgba(255, 147, 143, 1) 100%
     );
 
@@ -61,8 +57,27 @@
   }
 }
 
+@mixin darkMode-altBG {
+  background: $dark-bg;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 5, 11, 1) 0%,
+    rgba(9, 9, 121, 1) 99%
+  );
+  border-radius: 0;
+  box-shadow: 0 0.33rem 0.33rem hsla(240, 86%, 25%, 0.91),
+    0 0.33rem 0.33rem hsla(240, 86%, 25%, 0.21),
+    0 0.63rem 0.33rem hsla(240, 86%, 25%, 0.21),
+    0 0.93rem 0.33rem hsla(240, 86%, 25%, 0.21),
+    0 1.33rem 0.33rem hsla(240, 86%, 25%, 0.21),
+    0 2.33rem 0.33rem hsla(240, 86%, 25%, 0.21),
+    0 3.33rem 0.33rem hsla(240, 86%, 25%, 0.21),
+    0 4.33rem 0.33rem hsla(240, 86%, 25%, 0.21);
+}
+
 @mixin lightMode-altBG {
   background: $light-bg;
+  border-radius: 0;
   box-shadow: 0 0.33rem 0.33rem hsla(212, 100%, 78%, 0.91),
     0 0.33rem 0.33rem hsla(212, 100%, 78%, 0.1),
     0 0.63rem 0.33rem hsla(212, 100%, 78%, 0.1),
@@ -75,14 +90,15 @@
 
 @mixin button {
   align-self: center;
-  background: $dark-link;
+  background: white;
+  color: black;
+  box-shadow: 2px 2px $light-btn-shadow, 4px 4px $light-btn-shadow;
   border: 0;
   border-radius: 4px;
-  box-shadow: 2px 2px $wesbos, 4px 4px $wesbos;
-  color: $dark-bg;
   cursor: pointer;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
+  letter-spacing: 0.04rem;
   outline: none;
   padding: 1rem;
   transition: all 0.2s ease;
@@ -98,6 +114,6 @@
   }
 
   &:hover {
-    background: $wesbos;
+    background: $dark-text;
   }
 }

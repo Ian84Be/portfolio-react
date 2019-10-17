@@ -3,22 +3,21 @@
 
 .Contact {
   @include ComponentWrapper();
-  // border: 1px solid white;
+  @include darkMode-altBG();
   flex-direction: column;
-  margin-top: 4rem;
+  padding-bottom: 0;
   width: 100%;
 
-  @media (max-width: 800px) {
-    margin-top: 4rem;
-  }
-
   @media (max-width: 475px) {
-    margin-top: 12rem;
-    padding-bottom: 4rem;
+    margin-top: 10rem;
   }
 
   &.lightMode {
     @include lightMode-altBG();
+
+    .alert-message {
+      color: $light-alert;
+    }
 
     label {
       color: $light-text;
@@ -44,9 +43,9 @@
 
     div.required.alert {
       &:after {
-        margin: 0.4rem;
         content: 'This field is required';
         color: $light-alert;
+        margin: 0.4rem;
       }
     }
   }
@@ -58,12 +57,16 @@
   display: flex;
   flex-direction: column;
   margin: 4rem;
+  margin-bottom: 0;
   max-width: 800px;
   padding: 0.1rem;
   width: 100%;
 
+  .alert-message {
+    color: $alert;
+  }
+
   form {
-    // border: 1px solid white;
     display: flex;
     flex-direction: column;
     margin: 2% 5%;
@@ -71,8 +74,8 @@
     width: 80%;
 
     header {
-      text-align: center;
       font-size: 1.5rem;
+      text-align: center;
     }
 
     div.required {
@@ -82,9 +85,9 @@
 
     div.required.alert {
       &:after {
-        margin: 0.4rem;
         content: 'This field is required';
         color: $alert;
+        margin: 0.4rem;
       }
     }
 
@@ -97,33 +100,27 @@
     }
 
     input {
-      background-color: $dark-bg;
+      background-color: $dark-text;
       border: none;
       border-radius: 5px;
-      color: $dark-text;
-      font-size: 0.8rem;
+      color: $black;
+      font-family: inherit; // need this to override defaults
+      font-size: inherit; // need this to override defaults
       letter-spacing: 0.11rem;
       margin-top: 0.4rem;
       padding: 10px;
       outline: none;
-      font-family: inherit; // need this to override defaults
-      font-size: inherit; // need this to override defaults
 
-      &:hover,
-      &:focus {
-        outline: auto 4px -webkit-focus-ring-color;
-      }
       &:not(:focus):invalid {
         border: 2px solid $alert;
       }
     }
 
     textarea {
-      background-color: $dark-bg;
+      background-color: $dark-text;
       border: none;
       border-radius: 5px;
-      color: $dark-text;
-      font-size: 0.8rem;
+      color: $black;
       letter-spacing: 0.11rem;
       margin-top: 0.4rem;
       outline: none;
@@ -132,10 +129,6 @@
       font-family: inherit; // need this to override defaults
       font-size: inherit; // need this to override defaults
 
-      &:hover,
-      &:focus {
-        outline: auto 4px -webkit-focus-ring-color;
-      }
       &:not(:focus):invalid {
         border: 2px solid $alert;
       }

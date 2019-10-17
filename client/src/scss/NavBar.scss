@@ -3,7 +3,6 @@
 .NavBar {
   align-items: center;
   background: $dark-bg;
-  // border-bottom: 1px solid $black;
   color: $dark-link;
   display: flex;
   justify-content: center;
@@ -39,7 +38,7 @@
       color: $light-link;
       transition: all 0.2s ease;
       &:hover {
-        color: $light-text;
+        color: $dark-link-hover;
       }
     }
   }
@@ -64,7 +63,7 @@
       color: $dark-link-hover;
     }
     &.active {
-      color: black;
+      color: $dark-link-hover;
     }
   }
 
@@ -78,10 +77,6 @@
     &:hover {
       transform: rotate(180deg);
       transition: all 0.2s ease;
-    }
-
-    @media (max-width: 580px) {
-      // font-size: 2rem;
     }
 
     @media (max-width: 475px) {
