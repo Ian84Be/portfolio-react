@@ -10,7 +10,6 @@
     rgba(9, 9, 121, 1) 50%,
     rgba(238, 114, 0, 1) 100%
   );
-
   border-radius: 8px;
   color: $dark-text;
   display: flex;
@@ -29,75 +28,24 @@
 
   @media (max-width: 475px) {
     margin-top: 15rem;
+    width: 100%;
   }
 
   &.lightMode {
-    background: $light-bg;
-    color: $light-text;
-    box-shadow: none;
-  }
-}
-
-.controls {
-  // border: 1px solid white;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-
-  @include formRange();
-}
-
-button.auto-play {
-  background: $dark-link;
-  border: 0;
-  border-radius: 4px;
-  color: $black;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 700;
-  margin-top: 2rem;
-  outline: none;
-  padding: 1rem;
-  transition: all 0.2s ease;
-  width: 120px;
-
-  box-shadow: 2px 2px $wesbos, 4px 4px $wesbos;
-
-  .playing {
-    background: black;
-    box-shadow: 0 0;
-    transform: translate(4px, 4px);
-  }
-
-  &:active {
-    box-shadow: 0 0;
-    transform: translate(4px, 4px);
-  }
-
-  &:hover {
-    background: $wesbos;
+    @include lightMode-altBG();
   }
 }
 
 .guitar__keys {
-  border-radius: 4px;
   display: grid;
-  grid-template-columns: 30% 30% 30%;
-  grid-template-rows: 30% 30% 30%;
-  grid-gap: 0.5rem 0.5rem;
-  justify-items: center;
-  padding: 2rem;
-
-  .sound {
-    display: flex;
-    font-size: 1rem;
-    letter-spacing: 0.1rem;
-  }
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: 1rem;
+  width: 100%;
 
   .key {
     align-items: center;
-    border: none;
-    border-radius: 0.5rem;
+    // border: 1px solid red;
     display: flex;
     font-size: 1.5rem;
     flex-direction: column;
@@ -124,16 +72,6 @@ button.auto-play {
       height: 4rem;
     }
 
-    &:hover {
-      border-color: $wesbos;
-      box-shadow: 0 0 1rem $wesbos;
-      cursor: pointer;
-      transform: scale(1.1);
-      img {
-        opacity: 1;
-      }
-    }
-
     img {
       // margin: 1rem;
       opacity: 0.5;
@@ -152,9 +90,51 @@ button.auto-play {
 
 .playing {
   border-color: $wesbos;
+  border-radius: 4px;
   box-shadow: 0 0 1rem $wesbos;
-  transform: scale(0.8);
+  transform: translate(4px, 4px);
   img {
     opacity: 1;
+  }
+}
+
+.controls {
+  @include formRange();
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+
+  .mode-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    polygon {
+      fill: white;
+      stroke: black;
+    }
+
+    .icon.tri {
+      margin-top: 9px;
+    }
+
+    .icon.active > * {
+      polygon {
+        fill: $alert;
+      }
+    }
+  }
+}
+
+button.auto-play {
+  @include button();
+  margin-top: 2rem;
+  width: 100%;
+
+  .playing {
+    background: black;
+    box-shadow: 0 0;
+    transform: translate(4px, 4px);
   }
 }
