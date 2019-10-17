@@ -111,8 +111,30 @@
 .controls {
   @include formRange();
   align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+
+  .mode-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    polygon {
+      fill: white;
+      stroke: black;
+    }
+
+    .icon.tri {
+      margin-top: 9px;
+    }
+
+    .icon.active > * {
+      polygon {
+        fill: $alert;
+      }
+    }
+  }
 }
 
 button.auto-play {

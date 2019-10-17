@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
+import PentaIcon from '../Icons/Penta';
+import TriadIcon from '../Icons/Triad';
+
 import cg1P from '../../assets/guitar/c-min-penta/cg-1.wav';
 import cg2P from '../../assets/guitar/c-min-penta/cg-2.wav';
 import cg3P from '../../assets/guitar/c-min-penta/cg-3.wav';
@@ -23,7 +26,8 @@ import cg9T from '../../assets/guitar/c-min-triad/cg-9.wav';
 import '../../scss/ToyBox/GuitBox.scss';
 
 const GuitBox = ({ lightMode }) => {
-  const [mode, setMode] = useState('c-min-triad');
+  const [mode, setMode] = useState(0);
+  console.log('render mode', mode);
 
   useEffect(() => {
     window.addEventListener('keydown', playSound);
@@ -108,7 +112,27 @@ const GuitBox = ({ lightMode }) => {
       </div>
 
       <div className="controls">
-        <input type="range" min="0" max="1" onChange={handleChange} />
+        <div className="mode-switch">
+          <span
+            className={mode === 0 ? 'icon active' : 'icon'}
+            onClick={() => setMode(0)}
+          >
+            <PentaIcon />
+          </span>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            onChange={handleChange}
+            value={mode}
+          />
+          <span
+            className={mode === 1 ? 'icon tri active' : 'icon tri'}
+            onClick={() => setMode(1)}
+          >
+            <TriadIcon />
+          </span>
+        </div>
         <button className="auto-play" onClick={autoPlay}>
           AutoPlay
         </button>
@@ -138,7 +162,7 @@ const GuitBox = ({ lightMode }) => {
 
   function handleChange(e) {
     let toggle = parseFloat(e.target.value);
-    return toggle === 1 ? setMode('c-min-triad') : setMode('c-min-penta');
+    setMode(toggle);
   }
 
   function autoPlay(e) {
@@ -157,8 +181,10 @@ const GuitBox = ({ lightMode }) => {
   }
 
   function playSound({ keyCode }) {
+    let thisMode;
+    mode === 0 ? (thisMode = 'c-min-penta') : (thisMode = 'c-min-triad');
     const audio = document.querySelector(
-      `audio[data-key="${keyCode}"][data-mode="${mode}"]`
+      `audio[data-key="${keyCode}"][data-mode="${thisMode}"]`
     );
     if (!audio) return;
     const key = document.querySelector(`.key[data-key="${keyCode}"]`);
