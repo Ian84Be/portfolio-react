@@ -1,7 +1,7 @@
 import React from 'react';
 
-import wordUpImg from '../assets/img/wordup.png';
-import designHubImg from '../assets/img/designhub.png';
+import wordUpImg from '../assets/img/wordup.jpg';
+import designHubImg from '../assets/img/designhub.jpg';
 import githubDark from '../assets/img/GitHub-Mark-64px.png';
 
 import '../scss/Projects.scss';
