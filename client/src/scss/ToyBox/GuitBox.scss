@@ -1,7 +1,7 @@
 @import '../palette';
 @import '../mixins';
 
-.DrumMachine__container {
+.GuitBox__container {
   align-items: center;
   background: rgb(7, 5, 11);
   background: linear-gradient(
@@ -39,30 +39,60 @@
 }
 
 .controls {
-  margin: 10px;
+  // border: 1px solid white;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  @include formRange();
 }
 
-button.auto-play.drums {
-  @include button();
-  // background: $dark-link;
-  // transition: all 0.2s ease;
-  width: 100%;
+button.auto-play {
+  background: $dark-link;
+  border: 0;
+  border-radius: 4px;
+  color: $black;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  outline: none;
+  padding: 1rem;
+  transition: all 0.2s ease;
+  width: 120px;
+
+  box-shadow: 2px 2px $wesbos, 4px 4px $wesbos;
 
   .playing {
     background: black;
     box-shadow: 0 0;
     transform: translate(4px, 4px);
   }
+
+  &:active {
+    box-shadow: 0 0;
+    transform: translate(4px, 4px);
+  }
+
+  &:hover {
+    background: $wesbos;
+  }
 }
 
-.drum-kit__keys {
+.guitar__keys {
   border-radius: 4px;
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 30% 30% 30%;
   grid-gap: 0.5rem 0.5rem;
   justify-items: center;
   padding: 2rem;
+
+  .sound {
+    display: flex;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+  }
 
   .key {
     align-items: center;
@@ -82,13 +112,16 @@ button.auto-play.drums {
 
     kbd {
       @include button();
+      align-items: center;
+      display: flex;
       font-size: 0.8em;
       font-family: inherit;
       text-transform: uppercase;
-      text-align: center;
-      margin: 1rem;
+      justify-content: center;
+      margin: 0.5rem;
       padding: 0.25rem;
-      width: 2rem;
+      width: 4rem;
+      height: 4rem;
     }
 
     &:hover {
@@ -124,11 +157,4 @@ button.auto-play.drums {
   img {
     opacity: 1;
   }
-}
-
-.sound {
-  // font-size: 1.2rem;
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
-  display: none;
 }

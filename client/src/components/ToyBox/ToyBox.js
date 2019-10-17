@@ -16,6 +16,14 @@ const ToyBox = ({ history, lightMode }) => {
           >
             🥁
           </span>
+          <span
+            aria-label="guitar"
+            className="guitar"
+            role="button"
+            onClick={() => history.push('/ToyBox/GuitBox')}
+          >
+            🎸
+          </span>
         </section>
       </div>
     </div>
