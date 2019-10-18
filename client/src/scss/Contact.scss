@@ -25,6 +25,7 @@
 
     input {
       background: $dark-link-hover;
+      box-sizing: border-box;
       color: $light-text;
     }
 
@@ -101,7 +102,7 @@
 
     input {
       background-color: $dark-text;
-      border: none;
+      border: 2px solid $dark-text;
       border-radius: 5px;
       color: $black;
       font-family: inherit; // need this to override defaults
@@ -118,7 +119,7 @@
 
     textarea {
       background-color: $dark-text;
-      border: none;
+      border: 2px solid $dark-text;
       border-radius: 5px;
       color: $black;
       letter-spacing: 0.11rem;
