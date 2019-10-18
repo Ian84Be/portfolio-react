@@ -58,6 +58,16 @@
       font-size: 1rem;
     }
 
+    &.playing {
+      border-color: $wesbos;
+      border-radius: 4px;
+      box-shadow: 0 0 1rem $wesbos;
+      transform: translate(4px, 4px);
+      img {
+        opacity: 1;
+      }
+    }
+
     kbd {
       @include button();
       align-items: center;
@@ -85,16 +95,6 @@
     img.kickDrum {
       width: 40%;
     }
-  }
-}
-
-.playing {
-  border-color: $wesbos;
-  border-radius: 4px;
-  box-shadow: 0 0 1rem $wesbos;
-  transform: translate(4px, 4px);
-  img {
-    opacity: 1;
   }
 }
 
