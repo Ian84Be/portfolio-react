@@ -46,6 +46,7 @@
   }
 
   .controls {
+    @include noSelect();
     flex-direction: column;
     justify-content: center;
     margin: 1rem;
