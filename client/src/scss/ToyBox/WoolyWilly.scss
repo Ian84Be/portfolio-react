@@ -32,7 +32,7 @@
 			0 1.33rem 0.33rem $light-btn-shadow;
     display: flex;
     z-index: 12;
-    margin: 1rem;
+    margin: 1rem; //this is important to placement, must match canvas
     @media (max-width: 300px) {
       max-width: 220px;
     }
@@ -41,7 +41,7 @@
   canvas#draw {
     border-radius: 1rem;
     padding: 0;
-    margin: 0;
+    margin-top: 1rem; //this is important to placement, must match img
     z-index: 123;
   }
 

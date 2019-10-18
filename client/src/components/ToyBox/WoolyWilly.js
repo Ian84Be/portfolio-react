@@ -127,7 +127,6 @@ class WoolyWilly extends React.Component {
 
   componentDidMount() {
     this.stretchCanvas();
-    this.changeBrush('crayon');
   }
 
   componentWillUnmount() {
@@ -235,11 +234,10 @@ class WoolyWilly extends React.Component {
   stretchCanvas = e => {
     const canvas = this.canvas.current;
     const projectImage = this.projectImage.current;
-    const rect = projectImage.getBoundingClientRect();
     canvas.style.position = 'absolute';
-    canvas.style.top = `${rect.y}px`;
-    canvas.width = projectImage.naturalWidth;
-    canvas.height = projectImage.naturalHeight;
+    canvas.width = projectImage.clientWidth;
+    canvas.height = projectImage.clientHeight;
+    this.changeBrush(this.state.brush);
   };
 }
 
