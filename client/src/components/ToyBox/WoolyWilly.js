@@ -1,5 +1,5 @@
 import React from 'react';
-import debounce from '../../utils/debounce';
+import PaintbrushIcon from '../Icons/Paintbrush';
 import projectImage from './WoolyWilly.jpg';
 import '../../scss/ToyBox/WoolyWilly.scss';
 
@@ -62,6 +62,9 @@ class WoolyWilly extends React.Component {
             >
               🖊
             </span>
+            <span onClick={() => this.changeBrush('paint')}>
+              <PaintbrushIcon />
+            </span>
           </div>
         </section>
       </div>
@@ -90,6 +93,13 @@ class WoolyWilly extends React.Component {
       this.ctx.lineWidth = 1.0;
       this.ctx.globalAlpha = 1;
     }
+    if (brush === 'paint') {
+      this.ctx.strokeStyle = `hsl(120, 86%, 50%)`;
+      this.ctx.lineJoin = 'round';
+      this.ctx.lineCap = 'square';
+      this.ctx.lineWidth = 10.0;
+      this.ctx.globalAlpha = 1;
+    }
   };
 
   stretchCanvas = e => {
@@ -98,6 +108,7 @@ class WoolyWilly extends React.Component {
     const rect = projectImage.getBoundingClientRect();
     canvas.style.position = 'absolute';
     canvas.style.top = `${rect.y}px`;
+    console.log(projectImage.naturalWidth);
     canvas.width = projectImage.naturalWidth;
     canvas.height = projectImage.naturalHeight;
   };

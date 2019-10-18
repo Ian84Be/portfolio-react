@@ -37,5 +37,11 @@
     span {
       font-size: 3rem;
     }
+    svg {
+      fill: $alert;
+      width: 3rem;
+      stroke: black;
+      stroke-width: 2px;
+    }
   }
 }
