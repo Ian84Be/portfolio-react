@@ -68,7 +68,6 @@ const Contact = ({ lightMode }) => {
             <label htmlFor="name">Name</label>
             <input
               required
-              autoFocus={true}
               id="name"
               name="name"
               type="text"
