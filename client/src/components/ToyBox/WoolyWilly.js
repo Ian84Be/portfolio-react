@@ -19,7 +19,6 @@ class WoolyWilly extends React.Component {
     this.canvas = React.createRef();
     this.projectImage = React.createRef();
     this.ctx = null;
-    window.addEventListener('resize', this.stretchCanvas);
     document.body.addEventListener(
       'touchstart',
       e => {
