@@ -42,6 +42,18 @@ class WoolyWilly extends React.Component {
             onMouseOut={() =>
               this.setState({ ...this.state, isDrawing: false })
             }
+            onTouchMove={this.draw}
+            onTouchStart={e => {
+              this.setState({
+                ...this.state,
+                isDrawing: true,
+                lastX: e.offsetX,
+                lastY: e.offsetY
+              });
+            }}
+            onTouchEnd={() =>
+              this.setState({ ...this.state, isDrawing: false })
+            }
             id="draw"
             ref={this.canvas}
             style={hidden ? { display: 'none' } : null}
