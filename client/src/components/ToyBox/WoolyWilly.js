@@ -20,6 +20,27 @@ class WoolyWilly extends React.Component {
     this.projectImage = React.createRef();
     this.ctx = null;
     window.addEventListener('resize', this.stretchCanvas);
+    document.body.addEventListener(
+      'touchstart',
+      e => {
+        if (e.target === this.canvas.current) e.preventDefault();
+      },
+      { passive: false }
+    );
+    document.body.addEventListener(
+      'touchmove',
+      e => {
+        if (e.target === this.canvas.current) e.preventDefault();
+      },
+      { passive: false }
+    );
+    document.body.addEventListener(
+      'touchend',
+      e => {
+        if (e.target === this.canvas.current) e.preventDefault();
+      },
+      { passive: false }
+    );
   }
   render() {
     const { brush, hidden, hue } = this.state;
@@ -38,22 +59,11 @@ class WoolyWilly extends React.Component {
                 lastY: e.offsetY
               });
             }}
-            onMouseUp={() => this.setState({ ...this.state, isDrawing: false })}
-            onMouseOut={() =>
-              this.setState({ ...this.state, isDrawing: false })
-            }
-            onTouchMove={this.draw}
-            onTouchStart={e => {
-              this.setState({
-                ...this.state,
-                isDrawing: true,
-                lastX: e.offsetX,
-                lastY: e.offsetY
-              });
-            }}
-            onTouchEnd={() =>
-              this.setState({ ...this.state, isDrawing: false })
-            }
+            onMouseUp={this.drawStop}
+            onMouseOut={this.drawStop}
+            onTouchMove={this.handleTouchMove}
+            onTouchStart={this.handleTouchStart}
+            onTouchEnd={this.drawStop}
             id="draw"
             ref={this.canvas}
             style={hidden ? { display: 'none' } : null}
@@ -117,6 +127,16 @@ class WoolyWilly extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.stretchCanvas);
+    document.body.removeEventListener('touchstart', e => {
+      console.log('touchstart', e);
+      if (e.target === this.canvas) e.preventDefault();
+    });
+    document.body.removeEventListener('touchmove', e => {
+      if (e.target === this.canvas) e.preventDefault();
+    });
+    document.body.removeEventListener('touchend', e => {
+      if (e.target === this.canvas) e.preventDefault();
+    });
   }
 
   colorPicker = e => {
@@ -150,16 +170,6 @@ class WoolyWilly extends React.Component {
     this.setState({ ...this.state, brush });
   };
 
-  stretchCanvas = e => {
-    const canvas = this.canvas.current;
-    const projectImage = this.projectImage.current;
-    const rect = projectImage.getBoundingClientRect();
-    canvas.style.position = 'absolute';
-    canvas.style.top = `${rect.y}px`;
-    canvas.width = projectImage.naturalWidth;
-    canvas.height = projectImage.naturalHeight;
-  };
-
   draw = e => {
     const { lastX, lastY, isDrawing } = this.state;
     if (!isDrawing) return;
@@ -177,6 +187,54 @@ class WoolyWilly extends React.Component {
       lastX: thisX,
       lastY: thisY
     });
+  };
+
+  drawStop = e => {
+    this.setState({ ...this.state, isDrawing: false });
+  };
+
+  handleTouchStart = e => {
+    let touch = e.touches[0];
+    const rect = this.canvas.current.getBoundingClientRect();
+    const { x, y } = rect;
+    const thisX = touch.clientX - x;
+    const thisY = touch.clientY - y;
+    this.setState({
+      ...this.state,
+      isDrawing: true,
+      lastX: thisX,
+      lastY: thisY
+    });
+  };
+
+  handleTouchMove = e => {
+    let touch = e.touches[0];
+    const { lastX, lastY, isDrawing } = this.state;
+    if (!isDrawing) return;
+    const rect = this.canvas.current.getBoundingClientRect();
+    const { x, y } = rect;
+    const thisX = touch.clientX - x;
+    const thisY = touch.clientY - y;
+    this.ctx.beginPath();
+    this.ctx.moveTo(lastX, lastY); //start from
+    this.ctx.lineTo(thisX, thisY); //go to
+    this.ctx.stroke();
+    this.setState({
+      ...this.state,
+      activeDoodle: true,
+      lastX: thisX,
+      lastY: thisY
+    });
+  };
+
+  stretchCanvas = e => {
+    const canvas = this.canvas.current;
+    const projectImage = this.projectImage.current;
+    const rect = projectImage.getBoundingClientRect();
+    canvas.style.position = 'absolute';
+    canvas.style.top = `${rect.y}px`;
+    canvas.width = projectImage.naturalWidth;
+    canvas.height = projectImage.naturalHeight;
   };
 }
 
