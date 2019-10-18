@@ -47,7 +47,12 @@ class WoolyWilly extends React.Component {
     return (
       <div className={`WoolyWilly ${this.props.lightMode ? 'lightMode' : ''}`}>
         <section className="WoolyWilly__body">
-          <img src={projectImage} alt="projectImage" ref={this.projectImage} />
+          <img
+            src={projectImage}
+            alt="projectImage"
+            ref={this.projectImage}
+            onLoad={this.stretchCanvas}
+          />
           <canvas
             onDoubleClick={() => console.log('onDoubleClick()')}
             onMouseMove={this.draw}
