@@ -24,6 +24,14 @@ const ToyBox = ({ history, lightMode }) => {
           >
             🎸
           </span>
+          <span
+            aria-label="man: bald"
+            className="man bald"
+            role="button"
+            onClick={() => history.push('/ToyBox/WW')}
+          >
+            👨‍🦲
+          </span>
         </section>
       </div>
     </div>

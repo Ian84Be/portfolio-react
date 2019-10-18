@@ -1,5 +1,5 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
-import PaintbrushIcon from '../Icons/Paintbrush';
 import projectImage from './WoolyWilly.jpg';
 import '../../scss/ToyBox/WoolyWilly.scss';
 
@@ -9,9 +9,10 @@ class WoolyWilly extends React.Component {
     this.state = {
       activeImg: projectImage,
       activeDoodle: false,
+      brush: 'crayon',
       isDrawing: false,
       hidden: false,
-      hue: 0,
+      hue: '#0f141a',
       lastX: 0,
       lastY: 0
     };
@@ -21,6 +22,7 @@ class WoolyWilly extends React.Component {
     window.addEventListener('resize', this.stretchCanvas);
   }
   render() {
+    const { brush, hidden, hue } = this.state;
     return (
       <div className={`WoolyWilly ${this.props.lightMode ? 'lightMode' : ''}`}>
         <section className="WoolyWilly__body">
@@ -42,29 +44,54 @@ class WoolyWilly extends React.Component {
             }
             id="draw"
             ref={this.canvas}
-            style={this.state.hidden ? { display: 'none' } : null}
+            style={hidden ? { display: 'none' } : null}
           ></canvas>
 
           <div className="controls">
-            <span
-              aria-label="crayon"
-              className="crayon"
-              role="button"
-              onClick={() => this.changeBrush('crayon')}
-            >
-              🖍
-            </span>
-            <span
-              aria-label="pen"
-              className="pen"
-              role="button"
-              onClick={() => this.changeBrush('pen')}
-            >
-              🖊
-            </span>
-            <span onClick={() => this.changeBrush('paint')}>
-              <PaintbrushIcon />
-            </span>
+            <section className="brushes">
+              <span
+                aria-label="pen"
+                style={brush === 'pen' ? { background: hue } : null}
+                role="button"
+                onClick={() => this.changeBrush('pen')}
+              >
+                🖊
+              </span>
+              <span
+                aria-label="crayon"
+                style={brush === 'crayon' ? { background: hue } : null}
+                role="button"
+                onClick={() => this.changeBrush('crayon')}
+              >
+                🖍
+              </span>
+
+              <span
+                aria-label="fire extinguisher"
+                style={
+                  brush === 'fire extinguisher' ? { background: hue } : null
+                }
+                role="button"
+                onClick={() => this.changeBrush('fire extinguisher')}
+              >
+                🧯
+              </span>
+              <span
+                aria-label="erase"
+                style={brush === 'erase' ? { background: hue } : null}
+                role="button"
+                onClick={() => this.changeBrush('erase')}
+              >
+                🧽
+              </span>
+            </section>
+            <section className="colorPicker">
+              <input
+                type="color"
+                value={this.state.hue}
+                onChange={this.colorPicker}
+              />
+            </section>
           </div>
         </section>
       </div>
@@ -76,30 +103,39 @@ class WoolyWilly extends React.Component {
     this.changeBrush('crayon');
   }
 
-  changeBrush = brush => {
-    console.log(brush);
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.stretchCanvas);
+  }
+
+  colorPicker = e => {
+    this.setState({ ...this.state, hue: e.target.value });
     this.ctx = this.canvas.current.getContext('2d');
-    if (brush === 'crayon') {
-      this.ctx.strokeStyle = `hsl(0, 100%, 50%)`;
-      this.ctx.lineJoin = 'round';
-      this.ctx.lineCap = 'round';
-      this.ctx.lineWidth = 4.0;
-      this.ctx.globalAlpha = 1;
-    }
+    this.ctx.strokeStyle = `${this.state.hue}`;
+  };
+
+  changeBrush = brush => {
+    this.ctx = this.canvas.current.getContext('2d');
+    this.ctx.strokeStyle = `${this.state.hue}`;
+    this.ctx.globalCompositeOperation = 'source-over';
+    this.ctx.globalAlpha = 0.7;
+    this.ctx.lineJoin = 'round';
+    this.ctx.lineCap = 'round';
     if (brush === 'pen') {
-      this.ctx.strokeStyle = `hsl(260, 38%, 3%)`;
-      this.ctx.lineJoin = 'round';
-      this.ctx.lineCap = 'round';
       this.ctx.lineWidth = 1.0;
-      this.ctx.globalAlpha = 1;
     }
-    if (brush === 'paint') {
-      this.ctx.strokeStyle = `hsl(120, 86%, 50%)`;
-      this.ctx.lineJoin = 'round';
-      this.ctx.lineCap = 'square';
-      this.ctx.lineWidth = 10.0;
-      this.ctx.globalAlpha = 1;
+    if (brush === 'crayon') {
+      this.ctx.lineWidth = 4.0;
     }
+    if (brush === 'fire extinguisher') {
+      this.ctx.globalAlpha = 0.2;
+      this.ctx.lineWidth = 44.0;
+    }
+    if (brush === 'erase') {
+      this.ctx.globalCompositeOperation = 'destination-out';
+      this.ctx.lineWidth = 30.0;
+      this.ctx.lineCap = 'round';
+    }
+    this.setState({ ...this.state, brush });
   };
 
   stretchCanvas = e => {
@@ -108,7 +144,6 @@ class WoolyWilly extends React.Component {
     const rect = projectImage.getBoundingClientRect();
     canvas.style.position = 'absolute';
     canvas.style.top = `${rect.y}px`;
-    console.log(projectImage.naturalWidth);
     canvas.width = projectImage.naturalWidth;
     canvas.height = projectImage.naturalHeight;
   };
@@ -120,7 +155,6 @@ class WoolyWilly extends React.Component {
     const { x, y } = rect;
     const thisX = e.clientX - x;
     const thisY = e.clientY - y;
-    // this.ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     this.ctx.beginPath();
     this.ctx.moveTo(lastX, lastY); //start from
     this.ctx.lineTo(thisX, thisY); //go to

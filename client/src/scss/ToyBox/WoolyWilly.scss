@@ -5,6 +5,10 @@
   @include ComponentWrapper();
   @include darkMode-altBG();
   margin-top: 5rem;
+  &.lightMode {
+    @include lightMode-altBG();
+  }
+  max-width: 500px;
 }
 
 .WoolyWilly__body {
@@ -15,33 +19,63 @@
   padding: 1rem;
 
   img {
+    border-radius: 1rem;
+    // prettier-ignore
+    box-shadow: 
+			0 0.33rem 0.33rem $light-btn-shadow,
+			0 0.33rem 0.33rem $light-btn-shadow, 
+			0 0.63rem 0.33rem $light-btn-shadow,
+			0 0.93rem 0.33rem $light-btn-shadow,
+			0 1.33rem 0.33rem $light-btn-shadow;
     display: flex;
     z-index: 12;
+    margin: 1rem;
   }
 
   canvas#draw {
+    border-radius: 1rem;
     padding: 0;
     margin: 0;
     z-index: 123;
   }
 
   .controls {
-    align-items: center;
-    // border: 1px solid red;
-    display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
     justify-content: center;
     margin: 1rem;
-    // padding: 1rem;
-    span {
-      font-size: 3rem;
+
+    .brushes {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      span {
+        font-size: 3rem;
+        margin: 1rem;
+        border-radius: 50%;
+        .erase {
+          transform: rotate(180deg);
+        }
+        &:hover {
+          background: $alert;
+        }
+      }
+      svg {
+        fill: $alert;
+        width: 3rem;
+        stroke: black;
+        stroke-width: 2px;
+      }
     }
-    svg {
-      fill: $alert;
-      width: 3rem;
-      stroke: black;
-      stroke-width: 2px;
+
+    input {
+      width: 4rem;
+      height: 4rem;
+      background-color: black;
+      // border: none;
+      border-radius: 5rem;
+      margin: 1rem;
+      margin-bottom: 0;
     }
   }
 }
