@@ -22,15 +22,6 @@ const DrumMachine = ({ lightMode }) => {
     <div className={`DrumMachine__container ${lightMode ? 'lightMode' : ''}`}>
       <div className="drum-kit__keys">
         <div
-          data-key="75"
-          className="key"
-          onClick={() => playSound({ keyCode: 75 })}
-        >
-          <img alt="tom drum" className="tomDrum" src={tomDrumIcon} />
-          <kbd>K</kbd>
-          <span className="sound">tom</span>
-        </div>
-        <div
           data-key="74"
           className="key"
           onClick={() => playSound({ keyCode: 74 })}
@@ -40,14 +31,15 @@ const DrumMachine = ({ lightMode }) => {
           <span className="sound">snare</span>
         </div>
         <div
-          data-key="68"
+          data-key="75"
           className="key"
-          onClick={() => playSound({ keyCode: 68 })}
+          onClick={() => playSound({ keyCode: 75 })}
         >
-          <img alt="kick drum" className="kickDrum" src={kickDrumIcon} />
-          <kbd>D</kbd>
-          <span className="sound">kick</span>
+          <img alt="tom drum" className="tomDrum" src={tomDrumIcon} />
+          <kbd>K</kbd>
+          <span className="sound">tom</span>
         </div>
+
         <div
           data-key="83"
           className="key"
@@ -56,6 +48,15 @@ const DrumMachine = ({ lightMode }) => {
           <img alt="hi hat cymbals" className="hihat" src={hiHatIcon} />
           <kbd>S</kbd>
           <span className="sound">hihat</span>
+        </div>
+        <div
+          data-key="68"
+          className="key"
+          onClick={() => playSound({ keyCode: 68 })}
+        >
+          <img alt="kick drum" className="kickDrum" src={kickDrumIcon} />
+          <kbd>D</kbd>
+          <span className="sound">kick</span>
         </div>
       </div>
 
