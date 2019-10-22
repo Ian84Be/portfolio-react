@@ -13,6 +13,17 @@ import hiHatIcon from '../../assets/DrumMachine/img/hihat2.png';
 import '../../scss/ToyBox/DrumMachine.scss';
 
 const DrumMachine = ({ lightMode }) => {
+  const kickRef = React.createRef();
+  const hihatRef = React.createRef();
+  const snareRef = React.createRef();
+  const tomRef = React.createRef();
+  const drumKeyCodes = [
+    { k: 83, ref: snareRef },
+    { k: 68, ref: tomRef },
+    { k: 74, ref: hihatRef },
+    { k: 75, ref: kickRef }
+  ];
+
   useEffect(() => {
     window.addEventListener('keydown', playSound);
     return () => window.removeEventListener('keydown', playSound);
@@ -20,86 +31,91 @@ const DrumMachine = ({ lightMode }) => {
 
   return (
     <div className={`DrumMachine__container ${lightMode ? 'lightMode' : ''}`}>
-      <div className="drum-kit__keys">
+      <audio data-key="83" src={hihat} ref={hihatRef}></audio>
+      <audio data-key="68" src={kick} ref={kickRef}></audio>
+      <audio data-key="74" src={snare} ref={snareRef}></audio>
+      <audio data-key="75" src={tom} ref={tomRef}></audio>
+      <section className="drum-kit__keys">
         <div
           data-key="74"
           className="key"
           onClick={() => playSound({ keyCode: 74 })}
         >
-          <img alt="snare drum" className="snareDrum" src={snareDrumIcon} />
+          <img alt="hi hat cymbals" className="hihat" src={hiHatIcon} />
           <kbd>J</kbd>
-          <span className="sound">snare</span>
+        </div>
+
+        <div
+          data-key="68"
+          className="key"
+          onClick={() => playSound({ keyCode: 68 })}
+        >
+          <img alt="tom drum" className="tomDrum" src={tomDrumIcon} />
+          <kbd>D</kbd>
+        </div>
+        <div
+          data-key="83"
+          className="key"
+          onClick={() => playSound({ keyCode: 83 })}
+        >
+          <img alt="snare drum" className="snareDrum" src={snareDrumIcon} />
+          <kbd>S</kbd>
         </div>
         <div
           data-key="75"
           className="key"
           onClick={() => playSound({ keyCode: 75 })}
         >
-          <img alt="tom drum" className="tomDrum" src={tomDrumIcon} />
-          <kbd>K</kbd>
-          <span className="sound">tom</span>
-        </div>
-
-        <div
-          data-key="83"
-          className="key"
-          onClick={() => playSound({ keyCode: 83 })}
-        >
-          <img alt="hi hat cymbals" className="hihat" src={hiHatIcon} />
-          <kbd>S</kbd>
-          <span className="sound">hihat</span>
-        </div>
-        <div
-          data-key="68"
-          className="key"
-          onClick={() => playSound({ keyCode: 68 })}
-        >
           <img alt="kick drum" className="kickDrum" src={kickDrumIcon} />
-          <kbd>D</kbd>
-          <span className="sound">kick</span>
+          <kbd>K</kbd>
         </div>
-      </div>
+      </section>
 
-      <div className="controls">
-        <button className={`auto-play drums`} onClick={autoPlay}>
+      <div className="drum-controls">
+        <button className="play drums" onClick={handleAutoPlay}>
           AutoPlay
         </button>
+        <button className="stop drums" onClick={stopAll}>
+          Stop
+        </button>
       </div>
-
-      <audio data-key="83" src={hihat}></audio>
-      <audio data-key="68" src={kick}></audio>
-      <audio data-key="74" src={snare}></audio>
-      <audio data-key="75" src={tom}></audio>
     </div>
   );
 
-  async function autoPlay(e) {
+  function stopAll() {
+    const highestTimeoutId = setTimeout(() => null);
+    for (let i = 0; i < highestTimeoutId; i++) clearTimeout(i);
+  }
+
+  function handleAutoPlay() {
+    let newPhrase = makePhrase();
+    newPhrase.forEach(note => playSound(note));
+  }
+
+  function playSound({ keyCode, delay = 0 }) {
+    const drumKey = drumKeyCodes.find(key => key.k === keyCode);
+    if (!drumKey) return;
+    const audio = drumKey.ref.current;
+    audio.currentTime = 0;
+    if (delay) {
+      return setTimeout(() => audio.play(), delay);
+    } else audio.play();
+  }
+
+  function makePhrase() {
     const drumNums = [83, 68, 74, 75];
+    const thisPhrase = [];
     let min = 0,
       max = 4,
       time = 330;
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 64; i++) {
       let thisNote = 0;
       let rand = Math.floor(Math.random() * (max - min + 1) + min);
       thisNote = drumNums[rand];
       thisNote = thisNote ? thisNote : 0; //0 for a silence
-      setTimeout(() => playSound({ keyCode: thisNote }), i * time);
+      thisPhrase.push({ keyCode: thisNote, delay: i * time });
     }
-    return;
-  }
-
-  function playSound({ keyCode }) {
-    const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
-    if (!audio) return;
-    const key = document.querySelector(`.key[data-key="${keyCode}"]`);
-    audio.currentTime = 0;
-    audio
-      .play()
-      .then(res => {
-        key.classList.add('playing');
-        setTimeout(() => key.classList.remove('playing'), 100);
-      })
-      .catch(err => console.log('err', err));
+    return thisPhrase;
   }
 };
 
