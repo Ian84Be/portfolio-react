@@ -39,7 +39,9 @@ const DrumMachine = ({ lightMode }) => {
         <div
           data-key="74"
           className="key"
-          onClick={() => playSound({ keyCode: 74 })}
+          onMouseDown={() => playSound({ keyCode: 74 })}
+          onTouchStart={() => playSound({ keyCode: 74 })}
+          onTouchEnd={e => e.preventDefault()}
         >
           <img alt="hi hat cymbals" className="hihat" src={hiHatIcon} />
           <kbd>J</kbd>
@@ -48,7 +50,9 @@ const DrumMachine = ({ lightMode }) => {
         <div
           data-key="68"
           className="key"
-          onClick={() => playSound({ keyCode: 68 })}
+          onMouseDown={() => playSound({ keyCode: 68 })}
+          onTouchStart={() => playSound({ keyCode: 68 })}
+          onTouchEnd={e => e.preventDefault()}
         >
           <img alt="tom drum" className="tomDrum" src={tomDrumIcon} />
           <kbd>D</kbd>
@@ -56,7 +60,9 @@ const DrumMachine = ({ lightMode }) => {
         <div
           data-key="83"
           className="key"
-          onClick={() => playSound({ keyCode: 83 })}
+          onMouseDown={() => playSound({ keyCode: 83 })}
+          onTouchStart={() => playSound({ keyCode: 83 })}
+          onTouchEnd={e => e.preventDefault()}
         >
           <img alt="snare drum" className="snareDrum" src={snareDrumIcon} />
           <kbd>S</kbd>
@@ -64,7 +70,9 @@ const DrumMachine = ({ lightMode }) => {
         <div
           data-key="75"
           className="key"
-          onClick={() => playSound({ keyCode: 75 })}
+          onMouseDown={() => playSound({ keyCode: 75 })}
+          onTouchStart={() => playSound({ keyCode: 75 })}
+          onTouchEnd={e => e.preventDefault()}
         >
           <img alt="kick drum" className="kickDrum" src={kickDrumIcon} />
           <kbd>K</kbd>
@@ -72,10 +80,20 @@ const DrumMachine = ({ lightMode }) => {
       </section>
 
       <div className="drum-controls">
-        <button className="play drums" onClick={handleAutoPlay}>
+        <button
+          className="play drums"
+          onMouseDown={handleAutoPlay}
+          onTouchStart={handleAutoPlay}
+          onTouchEnd={e => e.preventDefault()}
+        >
           AutoPlay
         </button>
-        <button className="stop drums" onClick={stopAll}>
+        <button
+          className="stop drums"
+          onMouseDown={stopAll}
+          onTouchStart={stopAll}
+          onTouchEnd={e => e.preventDefault()}
+        >
           Stop
         </button>
       </div>
