@@ -95,6 +95,7 @@
     }
 
     &.yin-yang {
+      @include noSelect();
       cursor: pointer;
       @media (max-width: 580px) {
         display: flex;
