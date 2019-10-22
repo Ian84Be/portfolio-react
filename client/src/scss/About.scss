@@ -5,7 +5,7 @@
   @include ComponentWrapper();
 
   @media (max-width: 580px) {
-    padding-bottom: 4rem;
+    // padding-bottom: 4rem;
   }
 
   &.lightMode {
@@ -50,14 +50,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 2rem;
+      margin-top: 4rem;
 
       @media (max-width: 580px) {
         padding: 0 4rem;
       }
 
       span {
-        margin-top: 2rem;
+        margin-top: 1rem;
       }
     }
   }
@@ -95,7 +95,10 @@
 
     &.yin-yang {
       cursor: pointer;
-      margin: 0.65rem 0.5rem 0.5rem 0;
+      @media (max-width: 580px) {
+        display: flex;
+      }
+
       &:hover {
         transform: scale(2) rotate(90deg);
         transition: transform 0.5s ease-out;

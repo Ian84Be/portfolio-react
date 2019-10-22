@@ -30,6 +30,7 @@
 .ToyBox__buttons {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 4rem;
   width: 100%;
