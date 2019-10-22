@@ -47,8 +47,8 @@
   transform: translate(4px, 4px);
 }
 
-button.play.drums,
-button.stop.drums {
+button.play,
+button.stop {
   @include button();
   max-width: 30%;
 

@@ -40,12 +40,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
   padding: 1rem;
   width: 100%;
 
   .key {
     align-items: center;
-    // border: 1px solid red;
     display: flex;
     font-size: 1.5rem;
     flex-direction: column;
@@ -58,16 +58,6 @@
       font-size: 1rem;
     }
 
-    &.playing {
-      border-color: $wesbos;
-      border-radius: 4px;
-      box-shadow: 0 0 1rem $wesbos;
-      transform: translate(4px, 4px);
-      img {
-        opacity: 1;
-      }
-    }
-
     kbd {
       @include button();
       align-items: center;
@@ -76,25 +66,23 @@
       font-family: inherit;
       text-transform: uppercase;
       justify-content: center;
-      margin: 0.5rem;
       padding: 0.25rem;
-      width: 4rem;
-      height: 4rem;
+      width: 6rem;
+      height: 6rem;
+      @media (max-width: 475px) {
+        width: 100%;
+      }
     }
 
-    img {
-      // margin: 1rem;
-      opacity: 0.5;
-      width: 50%;
-    }
-
-    img.tomDrum {
-      width: 30%;
-    }
-
-    img.kickDrum {
-      width: 40%;
-    }
+    // &.playing {
+    //   border-color: $wesbos;
+    //   border-radius: 4px;
+    //   box-shadow: 0 0 1rem $wesbos;
+    //   transform: translate(4px, 4px);
+    //   img {
+    //     opacity: 1;
+    //   }
+    // }
   }
 }
 
@@ -105,6 +93,7 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   .mode-switch {
     display: flex;
@@ -126,16 +115,35 @@
       }
     }
   }
-}
 
-button.auto-play {
-  @include button();
-  margin-top: 2rem;
-  width: 100%;
+  .controls__buttons {
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0 1rem;
 
-  .playing {
-    background: black;
-    box-shadow: 0 0;
-    transform: translate(4px, 4px);
+    button.play,
+    button.stop {
+      @include button();
+      max-width: 40%;
+      margin: 0.5rem 0.5rem;
+
+      @media (max-width: 475px) {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+        max-width: 100%;
+        margin: 0.5rem 0;
+      }
+
+      // .playing {
+      //   background: black;
+      //   box-shadow: 0 0;
+      //   transform: translate(4px, 4px);
+      // }
+    }
   }
 }
