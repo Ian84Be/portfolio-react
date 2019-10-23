@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../scss/Contact.scss';
 
 const Contact = ({ lightMode }) => {
+  const [anchor, setAnchor] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,7 +57,11 @@ const Contact = ({ lightMode }) => {
   };
 
   return (
-    <div className={`Contact ${lightMode ? 'lightMode' : ''}`}>
+    <div
+      className={`Contact ${lightMode ? 'lightMode' : ''}`}
+      ref={el => setAnchor(el)}
+    >
+      {anchor && anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })}
       <section className="Contact__body">
         <form onSubmit={e => e.preventDefault()}>
           {message ? (

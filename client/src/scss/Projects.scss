@@ -4,7 +4,6 @@
 .Projects {
   @include ComponentWrapper();
   @include darkMode-altBG();
-  margin-top: 2rem;
 
   @media (max-width: 475px) {
     margin-top: 12rem;
@@ -16,10 +15,10 @@
 }
 
 .Projects__body {
-  margin: 2rem;
+  padding: 2rem;
   margin-bottom: 0;
+  margin-top: 2rem;
   max-width: 800px;
-  padding: 0.1rem;
 }
 
 .Projects__card {
