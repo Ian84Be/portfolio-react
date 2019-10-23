@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import githubLight from '../../assets/img/GitHub-Mark-Light-64px.png';
 import lambdaLogo from '../../assets/img/Lambda_Logo.png';
 import linkedInLogo from '../../assets/img/LI-In-Bug.png';
@@ -6,8 +6,13 @@ import profilePic from '../../assets/img/ian-belknap3.png';
 import '../../scss/Profile.scss';
 
 const Profile = ({ lightMode }) => {
+  const [anchor, setAnchor] = useState(null);
   return (
-    <div className={`Profile ${lightMode ? 'lightMode' : ''}`}>
+    <div
+      className={`Profile ${lightMode ? 'lightMode' : ''}`}
+      ref={el => setAnchor(el)}
+    >
+      {anchor && anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })}
       <div className="Profile__body">
         <section className="Profile__left-side" role="banner">
           <h1>Ian Belknap</h1>

@@ -6,6 +6,7 @@ import Contact from './components/Contact';
 import Home from './components/Home/Home';
 import NavBar from './components/NavBar';
 import Projects from './components/Projects';
+import Footer from './components/Footer';
 
 import ToyBox from './components/ToyBox/ToyBox';
 import DrumMachine from './components/ToyBox/DrumMachine';
@@ -67,6 +68,9 @@ function App() {
             />
           </Switch>
         </main>
+        <footer>
+          <Footer />
+        </footer>
       </div>
     </BrowserRouter>
   );

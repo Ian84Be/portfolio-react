@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import wordUpImg from '../assets/img/wordup.jpg';
 import designHubImg from '../assets/img/designhub.jpg';
@@ -7,8 +7,13 @@ import githubDark from '../assets/img/GitHub-Mark-64px.png';
 import '../scss/Projects.scss';
 
 const Projects = ({ lightMode }) => {
+  const [anchor, setAnchor] = useState(null);
   return (
-    <div className={`Projects ${lightMode ? 'lightMode' : ''}`}>
+    <div
+      className={`Projects ${lightMode ? 'lightMode' : ''}`}
+      ref={el => setAnchor(el)}
+    >
+      {anchor && anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })}
       <section className="Projects__body">
         <div className="Projects__card">
           <h3 className="column-view">WordUp</h3>

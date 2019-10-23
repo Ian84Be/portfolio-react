@@ -1,11 +1,16 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React from 'react';
+import React, { useState } from 'react';
 
 import '../../scss/ToyBox.scss';
 
 const ToyBox = ({ history, lightMode }) => {
+  const [anchor, setAnchor] = useState(null);
   return (
-    <div className={`ToyBox ${lightMode ? 'lightMode' : ''}`}>
+    <div
+      className={`ToyBox ${lightMode ? 'lightMode' : ''}`}
+      ref={el => setAnchor(el)}
+    >
+      {anchor && anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })}
       <div className="ToyBox__body">
         <section className="ToyBox__buttons">
           <span
