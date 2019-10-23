@@ -12,7 +12,7 @@ const Profile = ({ lightMode }) => {
       className={`Profile ${lightMode ? 'lightMode' : ''}`}
       ref={el => setAnchor(el)}
     >
-      {anchor && anchor.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+      {anchor && anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })}
       <div className="Profile__body">
         <section className="Profile__left-side" role="banner">
           <h1>Ian Belknap</h1>

@@ -50,11 +50,20 @@
 .Footer__bottom {
   align-items: center;
   display: flex;
+
   @media (max-width: 500px) {
     margin: 1rem;
   }
+
+  @media (max-width: 300px) {
+    flex-direction: column;
+    & > * {
+      margin: 1rem;
+    }
+  }
+
   p {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     opacity: 0.22;
     transition: opacity 0.2s ease-in-out;
     &:hover {
@@ -64,7 +73,9 @@
   }
 
   span {
+    font-size: 1rem;
     margin: 0 0.5rem;
+    opacity: 0.22;
   }
 
   .icons {
