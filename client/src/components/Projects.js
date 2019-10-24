@@ -16,43 +16,6 @@ const Projects = ({ lightMode }) => {
       {anchor && anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })}
       <section className="Projects__body">
         <div className="Projects__card">
-          <h3 className="column-view">WordUp</h3>
-          <a href="https://wordup.netlify.com">
-            <img
-              className="Projects__card-thumb"
-              src={wordUpImg}
-              alt="WordUp Gameplay"
-            />
-          </a>
-
-          <section className="Projects__card-writeup">
-            <header>
-              <h3 className="row-view">WordUp</h3>
-            </header>
-            <ul className="text">
-              <li>A 3-Dimensional word game for 1 - 4 players</li>
-              <li>Independently engineered and styled with custom UI</li>
-              <li>Tech Stack: JavaScript, React, Redux, Sass, Express</li>
-            </ul>
-            <div className="buttons">
-              <a href="https://wordup.netlify.com">
-                <button>View</button>
-              </a>
-              <a href="https://github.com/Ian84Be/wordup">
-                <button className="github-btn">
-                  <img
-                    alt="GitHub"
-                    className="github"
-                    role="button"
-                    src={githubDark}
-                  />
-                </button>
-              </a>
-            </div>
-          </section>
-        </div>
-
-        <div className="Projects__card">
           <h3 className="column-view">DesignHub</h3>
           <a href="https://www.designhubx.com">
             <img
@@ -93,6 +56,43 @@ const Projects = ({ lightMode }) => {
                 <button>View</button>
               </a>
               <a href="https://github.com/Lambda-School-Labs/designhub-fe/">
+                <button className="github-btn">
+                  <img
+                    alt="GitHub"
+                    className="github"
+                    role="button"
+                    src={githubDark}
+                  />
+                </button>
+              </a>
+            </div>
+          </section>
+        </div>
+
+        <div className="Projects__card">
+          <h3 className="column-view">WordUp</h3>
+          <a href="https://wordup.netlify.com">
+            <img
+              className="Projects__card-thumb"
+              src={wordUpImg}
+              alt="WordUp Gameplay"
+            />
+          </a>
+
+          <section className="Projects__card-writeup">
+            <header>
+              <h3 className="row-view">WordUp</h3>
+            </header>
+            <ul className="text">
+              <li>A 3-Dimensional word game for 1 - 4 players</li>
+              <li>Independently engineered and styled with custom UI</li>
+              <li>Tech Stack: JavaScript, React, Redux, Sass, Express</li>
+            </ul>
+            <div className="buttons">
+              <a href="https://wordup.netlify.com">
+                <button>View</button>
+              </a>
+              <a href="https://github.com/Ian84Be/wordup">
                 <button className="github-btn">
                   <img
                     alt="GitHub"
